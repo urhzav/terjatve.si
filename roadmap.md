@@ -3,5 +3,5 @@
 - [x] Use uploaded logos and photo; set favicon and page metadata.
 - [x] Verify both layouts and interactive controls.
 - [x] Add the uploaded logo loading animation before revealing the existing page.
-- [ ] Replace featured cards with uploaded illustrated cards in both themes and verify interactions.
+- [x] Replace featured cards with uploaded illustrated cards in both themes and verify interactions.
 - [ ] Connect real inquiry delivery — awaiting recipient email and contact details; original templates only simulate sending.
