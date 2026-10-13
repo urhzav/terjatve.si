@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import DesktopSite from "@/components/terjatve/DesktopSite";
 import MobileSite from "@/components/terjatve/MobileSite";
+import LoadingScreen from "@/components/terjatve/LoadingScreen";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -24,5 +25,5 @@ function Index() {
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
-  return mobile ? <MobileSite /> : <DesktopSite />;
+  return <>{mobile ? <MobileSite /> : <DesktopSite />}<LoadingScreen /></>;
 }
