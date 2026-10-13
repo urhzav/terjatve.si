@@ -16,7 +16,9 @@ export default function BuildingPhoto({ wide = false, delay = 0 }: Props) {
       data-rv={String(delay)}
     >
       <div className="building-photo__box">
+        <div className="building-photo__edge" />
         <div className="building-photo__card" />
+
         <img className="building-photo__img" src={building.url} alt="Poslovna stavba terjatve.si" />
         <div className="building-photo__top" aria-hidden="true">
           <img className="building-photo__top-img" src={building.url} alt="" />
