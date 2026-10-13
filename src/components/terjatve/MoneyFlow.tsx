@@ -11,13 +11,25 @@ export default class MoneyFlow extends React.Component {
   done = new WeakSet();
   anims = [];
 
+  visible = false;
+
   componentDidMount() {
     this.onResize = () => { const el = this.root.current; const wide = (el ? el.offsetWidth : window.innerWidth) >= 640; if (wide !== this.state.wide) this.setState({ wide }); };
     this.ro = new ResizeObserver(this.onResize); this.root.current && this.ro.observe(this.root.current); this.onResize();
+    // Run the glowing loop only while the diagram is on screen; it repaints every frame.
+    this.io = new IntersectionObserver(([entry]) => { this.visible = entry.isIntersecting; this.syncPlayback(); }, { rootMargin: '100px 0px' });
+    this.root.current && this.io.observe(this.root.current);
+    this.onVisibility = () => this.syncPlayback();
+    document.addEventListener('visibilitychange', this.onVisibility);
     this.animate();
   }
   componentDidUpdate() { this.animate(); }
-  componentWillUnmount() { this.ro && this.ro.disconnect(); this.anims.forEach(a => a.cancel()); }
+  componentWillUnmount() { this.ro && this.ro.disconnect(); this.io && this.io.disconnect(); document.removeEventListener('visibilitychange', this.onVisibility); this.anims.forEach(a => a.cancel()); }
+
+  syncPlayback() {
+    const run = this.visible && !document.hidden;
+    this.anims.forEach(a => { if (run && a.playState === 'paused') a.play(); else if (!run && a.playState === 'running') a.pause(); });
+  }
 
   animate() {
     const root = this.root.current; if (!root || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
