@@ -49,10 +49,10 @@ input,select,textarea,button{font:inherit;color:inherit}
 option{background:var(--card2);color:var(--fg)}
 
 .flow-1{position:relative;color:var(--fg);font-family:'Geist',system-ui,sans-serif}
-.flow-2{position:absolute;left:50%;top:40%;width:70vw;height:70vw;max-width:900px;max-height:900px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,color-mix(in oklch, var(--brand) calc((.16) * 100%), transparent),transparent 65%);filter:blur(30px);pointer-events:none}
+.flow-2{position:absolute;left:50%;top:40%;width:70vw;height:70vw;max-width:900px;max-height:900px;transform:translate3d(-50%,-50%,0);border-radius:50%;background:radial-gradient(circle,color-mix(in oklch, var(--brand) calc((.16) * 100%), transparent),color-mix(in oklch, var(--brand) calc((.05) * 100%), transparent) 45%,transparent 70%);will-change:transform;pointer-events:none}
 .flow-3{position:relative}
 .flow-4{border-radius:28px;border:1px solid rgba(var(--ink),.08);background:var(--cardA);padding:clamp(12px,3vw,40px)}
-.flow-5{display:block;width:100%;height:auto;overflow:visible}
+.flow-5{display:block;width:100%;height:auto;overflow:visible;will-change:transform}
 .flow-9{stroke:var(--state-0);transition:stroke .4s}
 .flow-10{stroke:var(--state-0);transition:stroke .4s}
 .flow-11{stroke:var(--state-0);transition:stroke .4s}
@@ -75,7 +75,7 @@ option{background:var(--card2);color:var(--fg)}
 .flow-36{fill:var(--card2);stroke:rgba(var(--ink),.14)}
 .flow-38{stroke:var(--fg)}
 .flow-39{fill:var(--fg)}
-.flow-40{display:block;width:100%;height:auto;overflow:visible}
+.flow-40{display:block;width:100%;height:auto;overflow:visible;will-change:transform}
 .flow-44{stroke:var(--state-0)}
 .flow-45{stroke:var(--state-0)}
 .flow-46{stroke:var(--state-0)}
