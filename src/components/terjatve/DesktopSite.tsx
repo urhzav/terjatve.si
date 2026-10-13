@@ -137,7 +137,7 @@ export default class DesktopSite extends React.Component {
       mx = e.clientX; my = e.clientY;
       const t = e.target && e.target.closest ? e.target : null;
       const spot = t && t.closest('[data-spot]');
-      if (spot) { const r = spot.getBoundingClientRect(); spot.style.setProperty('--mx', (mx - r.left) + 'px'); spot.style.setProperty('--my', (my - r.top) + 'px'); }
+      if (spot && !spot.classList.contains('featured-service')) { const r = spot.getBoundingClientRect(); spot.style.setProperty('--mx', (mx - r.left) + 'px'); spot.style.setProperty('--my', (my - r.top) + 'px'); }
       const m = t && this.motion && this.fine ? t.closest('[data-magnet]') : null;
       if (mag && mag !== m) { mag.style.transform = ''; mag = null; }
       if (m) { const r = m.getBoundingClientRect(); m.style.transform = 'translate(' + ((mx - r.left - r.width / 2) * 0.18).toFixed(1) + 'px,' + ((my - r.top - r.height / 2) * 0.3).toFixed(1) + 'px)'; mag = m; }
@@ -159,16 +159,29 @@ export default class DesktopSite extends React.Component {
     };
     on(window, 'pointermove', move, { passive: true });
     on(document.documentElement, 'mouseleave', () => { if (ring) ring.style.opacity = '0'; });
+    let lgx = '', lgy = '', running = false;
     const loop = () => {
-      rx += (mx - rx) * 0.2; ry += (my - ry) * 0.2;
+      let busy = false;
+      const dx = mx - rx, dy = my - ry;
+      if (Math.abs(dx) > 0.2 || Math.abs(dy) > 0.2) { rx += dx * 0.2; ry += dy * 0.2; busy = true; } else { rx = mx; ry = my; }
       if (ring && this.useCursor) ring.style.transform = 'translate3d(' + rx.toFixed(1) + 'px,' + ry.toFixed(1) + 'px,0)';
-      if (hero) {
+      if (hero && this.motion) {
         const r = hero.getBoundingClientRect();
-        if (r.bottom > 0) { gx += (mx - r.left - gx) * 0.07; gy += (my - r.top - gy) * 0.07; hero.style.setProperty('--gx', gx.toFixed(0) + 'px'); hero.style.setProperty('--gy', gy.toFixed(0) + 'px'); }
+        if (r.bottom > 0 && r.top < window.innerHeight) {
+          const tx = mx - r.left, ty = my - r.top;
+          if (Math.abs(tx - gx) > 1 || Math.abs(ty - gy) > 1) { gx += (tx - gx) * 0.07; gy += (ty - gy) * 0.07; busy = true; }
+          const sx = gx.toFixed(0) + 'px', sy = gy.toFixed(0) + 'px';
+          if (sx !== lgx) { hero.style.setProperty('--gx', sx); lgx = sx; }
+          if (sy !== lgy) { hero.style.setProperty('--gy', sy); lgy = sy; }
+        }
       }
-      this.raf = requestAnimationFrame(loop);
+      this.raf = busy ? requestAnimationFrame(loop) : 0;
+      running = busy;
     };
-    this.raf = requestAnimationFrame(loop);
+    const kick = () => { if (!running) { running = true; this.raf = requestAnimationFrame(loop); } };
+    on(window, 'pointermove', kick, { passive: true });
+    on(window, 'scroll', kick, { passive: true });
+    kick();
   }
 
   initIntro(root) {
