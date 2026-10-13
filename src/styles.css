@@ -870,7 +870,9 @@ html[data-theme=light] .building-photo{--photo-shadow:0 -4px 22px rgba(10,10,11,
 .building-photo__top-img{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(var(--photo-shadow))}
 .building-photo--narrow{margin-top:26px}
 .building-photo--narrow .building-photo__box{width:180%;margin-left:-40%}
+.building-photo--narrow .building-photo__edge{clip-path:inset(calc(40% - 1px) calc(22.2% - 1px) -1px calc(22.2% - 1px) round 23px)}
 .building-photo--narrow .building-photo__card,.building-photo--narrow .building-photo__img{clip-path:inset(40% 22.2% 0 22.2% round 22px)}
+
 .building-photo--narrow .building-photo__top{clip-path:inset(-20% 22.2% 60% 22.2%)}
 .desktop-438-col{position:relative;min-width:0;overflow-x:clip}
 .mobile-740{overflow-x:clip}
