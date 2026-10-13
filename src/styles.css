@@ -870,6 +870,12 @@ html[data-theme=light] .building-photo{--photo-shadow:0 -4px 22px rgba(10,10,11,
 .building-photo__top-img{position:absolute;inset:0;width:100%;height:100%;display:block;filter:drop-shadow(var(--photo-shadow))}
 .building-photo--narrow{margin-top:26px}
 .building-photo--narrow .building-photo__box{width:180%;margin-left:-40%}
+.building-photo--full{margin-top:clamp(24px,3vw,44px);width:100%}
+.building-photo--full .building-photo__box{width:100%;margin-left:0}
+.building-photo--full .building-photo__edge,
+.building-photo--full .building-photo__card,
+.building-photo--full .building-photo__top{display:none}
+.building-photo--full .building-photo__img{clip-path:none;filter:drop-shadow(var(--photo-shadow))}
 .building-photo--narrow .building-photo__edge{clip-path:inset(calc(40% - 1px) calc(22.2% - 1px) -1px calc(22.2% - 1px) round 23px)}
 .building-photo--narrow .building-photo__card,.building-photo--narrow .building-photo__img{clip-path:inset(40% 22.2% 0 22.2% round 22px)}
 

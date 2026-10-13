@@ -5,14 +5,17 @@ import building from "@/assets/stavba.webp.asset.json";
 type Props = {
   /** Wide = card spans the column, building rises above its top edge. */
   wide?: boolean;
+  /** Full = edge-to-edge strip below the section, entire image visible. */
+  full?: boolean;
   /** Scroll-reveal delay in ms, matching the section's data-rv rhythm. */
   delay?: number;
 };
 
-export default function BuildingPhoto({ wide = false, delay = 0 }: Props) {
+export default function BuildingPhoto({ wide = false, full = false, delay = 0 }: Props) {
+  const variant = full ? "full" : wide ? "wide" : "narrow";
   return (
     <div
-      className={`building-photo building-photo--${wide ? "wide" : "narrow"}`}
+      className={`building-photo building-photo--${variant}`}
       data-rv={String(delay)}
     >
       <div className="building-photo__box">
