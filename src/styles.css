@@ -298,15 +298,15 @@ option{background:var(--card2);color:var(--fg)}
 .desktop-275{margin:20px 0 0;font-size:72px;font-weight:550;letter-spacing:0;line-height:.98}
 .desktop-276{color:var(--brand)}
 .desktop-277{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px;margin-top:clamp(48px,6vw,80px)}
-.desktop-278{--h:0;--mx:50%;--my:50%;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:56px;min-height:320px;padding:26px;border-radius:24px;background:var(--card);border:1px solid rgba(var(--ink),.08);overflow:hidden;isolation:isolate;transform:translateY(calc(var(--h) * -6px));transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s}
+.desktop-278{--h:0;--mx:50%;--my:50%;position:relative;display:flex;flex-direction:column;gap:56px;min-height:320px;padding:26px;border-radius:24px;background:var(--card);border:1px solid rgba(var(--ink),.08);overflow:hidden;isolation:isolate;transform:translateY(calc(var(--h) * -6px));transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s}
 .desktop-278:hover{--h:1;border-color:rgba(var(--ink),.2)}
 .desktop-279{position:absolute;inset:0;z-index:-1;background:radial-gradient(320px circle at var(--mx) var(--my),color-mix(in oklch, var(--brand) calc((.22) * 100%), transparent),transparent 65%);opacity:var(--h);transition:opacity .4s}
 .desktop-280{display:flex;justify-content:space-between;align-items:center}
 .desktop-281{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0;color:var(--mute)}
 .desktop-282{width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 calc(var(--h) * 6px) color-mix(in oklch, var(--brand) calc((.22) * 100%), transparent);transition:box-shadow .45s}
-.desktop-283{display:flex;flex-direction:column;gap:14px}
+.desktop-283{display:flex;flex-direction:column;gap:14px;flex:1;min-height:0}
 .desktop-284{margin:0;font-size:28px;font-weight:550;letter-spacing:0;line-height:1.08;text-wrap:balance}
-.desktop-285{margin:0;font-size:15px;line-height:1.6;color:var(--body);text-wrap:pretty}
+.desktop-285{margin:auto 0 0;font-size:15px;line-height:1.6;color:var(--body);text-wrap:pretty}
 .desktop-286{--h:0;position:relative;height:clamp(440px,60vw,820px);overflow:hidden}
 .desktop-286:hover{--h:1}
 .desktop-287{position:absolute;left:0;right:0;top:-14%;bottom:-14%}
