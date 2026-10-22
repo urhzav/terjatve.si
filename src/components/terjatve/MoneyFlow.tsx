@@ -1,19 +1,49 @@
 // @ts-nocheck — Faithfully migrated user-supplied JavaScript class and template.
 import React from "react";
-import { Button } from "@/components/ui/button";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
 import darkLogo from "@/assets/logo.png.asset.json";
-import partnership from "@/assets/partnerstvo.jpg.asset.json";
+
+const FLOWS = [
+  { name: 'Hipotekarni krediti', e1: 'Financiranje', e1s: 'DO 5 MIO €', e2: 'Naložba', e2s: 'ZAVAROVANO Z NEPREMIČNINO', n3: 'Nepremičnina', n3s: 'ZAVAROVANJE',
+    d: 'Podjetjem zagotavljamo financiranje do 5 milijonov € ob ustreznem zavarovanju z nepremičnino.' },
+  { name: 'Odkup terjatev', e1: 'Takojšnje izplačilo', e1s: 'VAŠE TERJATVE', e2: 'Sredstva', e2s: 'BREZ ČAKANJA NA KUPCA', n3: 'Poslovanje', n3s: 'LIKVIDNOST',
+    d: 'Odkupimo vašo terjatev in vam sredstva izplačamo takoj, plačilo ob zapadlosti poravna dolžnik.' },
+  { name: 'Kratkoročno financiranje', e1: 'Dodatna sredstva', e1s: 'ZA KRAJŠE OBDOBJE', e2: 'Premostitev', e2s: 'HITRA IZVEDBA', n3: 'Tekoče potrebe', n3s: 'KRATKOROČNO',
+    d: 'Dodatna sredstva za krajše obdobje – znesek, obdobje in način vračila določimo individualno.' },
+  { name: 'Projektno financiranje', e1: 'Financiranje', e1s: 'LASTNI KAPITAL', e2: 'Investicija', e2s: 'V PROJEKT', n3: 'Projekt', n3s: 'IZVEDBA INVESTICIJE',
+    d: 'Financiramo poslovne in investicijske projekte – pogoje oblikujemo glede na namen in višino investicije.' }
+];
+
+const ICONS = [
+  <>
+    <path d="M-22,22 V-2 L0,-20 L22,-2 V22 Z M-6,22 V8 H6 V22" className="flow-17"></path>
+    <path d="M-29,3 L0,-24 L29,3" strokeWidth="3" className="flow-18"></path>
+  </>,
+  <>
+    <path d="M-16,-24 H8 L18,-14 V24 H-16 Z M8,-24 V-14 H18 M-9,-6 H10 M-9,2 H10" className="flow-17"></path>
+    <path d="M-8,13 L-2,18 L10,8" strokeWidth="3" className="flow-18"></path>
+  </>,
+  <>
+    <circle cx="0" cy="5" r="19" className="flow-17"></circle>
+    <path d="M-6,-21 H6 M0,-21 V-14 M15,-11 L19,-15" className="flow-17"></path>
+    <path d="M0,5 L9,-5" strokeWidth="3" className="flow-18"></path>
+    <circle cx="0" cy="5" r="2.5" fill="var(--brand)" stroke="none"></circle>
+  </>,
+  <>
+    <path d="M-28,24 V2 L-11,-9 V24 M-3,24 V-24 H25 V24 M-34,24 H34" className="flow-17"></path>
+    <path d="M5,-14 H8 M15,-14 H18 M5,-4 H8 M15,-4 H18 M5,6 H8 M15,6 H18" strokeWidth="3" className="flow-18"></path>
+  </>
+];
 
 export default class MoneyFlow extends React.Component {
-  state = { wide: true, active: -1 };
+  state = { wide: true, idx: 0 };
   root = React.createRef();
-  done = new WeakSet();
   anims = [];
-
+  timer = null;
   visible = false;
 
   componentDidMount() {
+    this.reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.onResize = () => { const el = this.root.current; const wide = (el ? el.offsetWidth : window.innerWidth) >= 640; if (wide !== this.state.wide) this.setState({ wide }); };
     this.ro = new ResizeObserver(this.onResize); this.root.current && this.ro.observe(this.root.current); this.onResize();
     // Run the glowing loop only while the diagram is on screen; it repaints every frame.
@@ -21,53 +51,146 @@ export default class MoneyFlow extends React.Component {
     this.root.current && this.io.observe(this.root.current);
     this.onVisibility = () => this.syncPlayback();
     document.addEventListener('visibilitychange', this.onVisibility);
-    this.animate();
+    this.start();
   }
-  componentDidUpdate() { this.animate(); }
-  componentWillUnmount() { this.ro && this.ro.disconnect(); this.io && this.io.disconnect(); document.removeEventListener('visibilitychange', this.onVisibility); this.anims.forEach(a => a.cancel()); }
+  componentDidUpdate(p, s) {
+    if (s.idx !== this.state.idx) this.swap();
+    if (s.wide !== this.state.wide) this.start();
+    this.syncPlayback();
+  }
+  componentWillUnmount() { this.stop(); this.ro && this.ro.disconnect(); this.io && this.io.disconnect(); document.removeEventListener('visibilitychange', this.onVisibility); }
+
+  stop() { this.anims.forEach(a => a.cancel()); this.anims = []; clearInterval(this.timer); this.timer = null; }
 
   syncPlayback() {
     const run = this.visible && !document.hidden;
     this.anims.forEach(a => { if (run && a.playState === 'paused') a.play(); else if (!run && a.playState === 'running') a.pause(); });
+    const D = (this.props.speed ?? 4.5) * 1000;
+    if (!run && this.timer) { clearInterval(this.timer); this.timer = null; }
+    else if (run && !this.timer && (this.props.autoplay ?? true)) this.timer = setInterval(() => this.next(), D);
   }
 
-  animate() {
-    const root = this.root.current; if (!root || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const D = (this.props.speed ?? 6) * 1000;
-    const seg = [[0.02, 0.28], [0.34, 0.6], [0.66, 0.97]];
-    root.querySelectorAll('[data-g]').forEach(p => {
-      if (this.done.has(p)) return; this.done.add(p);
-      const [a, b] = seg[+p.getAttribute('data-g')], len = p.getAttribute('stroke-dasharray').split(' ')[0];
-      this.anims.push(p.animate([
-        { offset: 0, strokeDashoffset: len }, { offset: a, strokeDashoffset: len, easing: 'cubic-bezier(.45,0,.25,1)' },
-        { offset: b, strokeDashoffset: -1000 }, { offset: 1, strokeDashoffset: -1000 }
-      ], { duration: D, iterations: Infinity }));
-    });
-    const hits = { 0: [0.02], 1: [0.28, 0.97], 2: [0.6] };
-    root.querySelectorAll('[data-n]').forEach(c => {
-      if (this.done.has(c)) return; this.done.add(c);
-      hits[c.getAttribute('data-n')].forEach(t => {
-        const k = [{ offset: 0, opacity: 0, transform: 'scale(1)' }];
-        k.push({ offset: Math.max(0.001, t - 0.001), opacity: 0, transform: 'scale(1)' }, { offset: t, opacity: 1, transform: 'scale(1)' }, { offset: Math.min(0.999, t + 0.12), opacity: 0, transform: 'scale(1.35)' }, { offset: 1, opacity: 0, transform: 'scale(1.35)' });
-        if (t >= 0.97) k.splice(1, 4, { offset: 0.03, opacity: 0.5, transform: 'scale(1.2)' }, { offset: 0.06, opacity: 0, transform: 'scale(1.35)' }, { offset: t, opacity: 1, transform: 'scale(1)' });
-        c.style.transformBox = 'fill-box'; c.style.transformOrigin = 'center';
-        this.anims.push(c.animate(k, { duration: D, iterations: Infinity }));
+  swap() {
+    const r = this.root.current; if (!r || this.reduce) return;
+    r.querySelectorAll('[data-swap]').forEach(el => el.animate([{ opacity: 0, transform: 'translateY(6px)' }, { opacity: 1, transform: 'none' }], { duration: 450, easing: 'cubic-bezier(.16,1,.3,1)' }));
+  }
+
+  start() {
+    this.stop();
+    const r = this.root.current; if (!r) return;
+    const D = (this.props.speed ?? 4.5) * 1000;
+    if (!this.reduce) {
+      const seg = [[0.06, 0.44], [0.5, 0.88]];
+      r.querySelectorAll('[data-g]').forEach(p => {
+        const [a, b] = seg[+p.getAttribute('data-g')], len = p.getAttribute('stroke-dasharray').split(' ')[0];
+        this.anims.push(p.animate([{ offset: 0, strokeDashoffset: len }, { offset: a, strokeDashoffset: len, easing: 'cubic-bezier(.45,0,.25,1)' }, { offset: b, strokeDashoffset: -1000 }, { offset: 1, strokeDashoffset: -1000 }], { duration: D, iterations: Infinity }));
       });
-    });
+      const hits = { 0: 0.06, 1: 0.44, 2: 0.88 };
+      r.querySelectorAll('[data-n]').forEach(c => {
+        const t = hits[c.getAttribute('data-n')];
+        c.style.transformBox = 'fill-box'; c.style.transformOrigin = 'center';
+        this.anims.push(c.animate([{ offset: 0, opacity: 0, transform: 'scale(1)' }, { offset: t - 0.001, opacity: 0, transform: 'scale(1)' }, { offset: t, opacity: 1, transform: 'scale(1)' }, { offset: Math.min(0.999, t + 0.1), opacity: 0, transform: 'scale(1.3)' }, { offset: 1, opacity: 0, transform: 'scale(1.3)' }], { duration: D, iterations: Infinity }));
+      });
+      const bar = r.querySelector('[data-tprog="' + this.state.idx + '"]');
+      r.querySelectorAll('[data-tprog]').forEach(b => { b.style.transform = 'scaleX(0)'; });
+      if (bar && (this.props.autoplay ?? true)) this.anims.push(bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: D, easing: 'linear' }));
+    }
     this.anims = this.anims.filter(a => a.effect && a.effect.target && a.effect.target.isConnected);
     this.syncPlayback();
   }
+  next() { this.setState(s => ({ idx: (s.idx + 1) % FLOWS.length }), () => this.start()); }
+  pick(i) { this.setState({ idx: i }, () => this.start()); }
 
-  render() { const v = this.renderVals(); return <><div ref={v.rootRef} className="flow-1"><div className="flow-2"></div><div className="flow-3"><div className="flow-4">{v.wide && <><svg viewBox="0 0 1200 520" fontFamily="Geist, system-ui, sans-serif" className="flow-5"><defs className="flow-6"><filter id="gw" x="-20%" y="-50%" width="140%" height="200%" className="flow-7"><fegaussianblur stddeviation="7" className="flow-8"></fegaussianblur></filter></defs><path d="M232,200 L528,200" fill="none" strokeWidth="2" className="flow-9" style={{"--state-0": v.base0}}></path><path d="M672,200 L968,200" fill="none" strokeWidth="2" className="flow-10" style={{"--state-0": v.base1}}></path><path d="M1040,272 C1040,470 600,470 600,272" fill="none" strokeWidth="5" className="flow-11" style={{"--state-0": v.base2}}></path><path d="M520,192 L530,200 L520,208" fill="none" strokeWidth="2" className="flow-12" style={{"--state-0": v.base0}}></path><path d="M960,192 L970,200 L960,208" fill="none" strokeWidth="2" className="flow-13" style={{"--state-0": v.base1}}></path><path d="M590,284 L600,272 L610,284" fill="none" strokeWidth="3" className="flow-14" style={{"--state-0": v.base2}}></path><path data-g="0" d="M232,200 L528,200" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="140 1200" strokeDashoffset="140" filter="url(#gw)" className="flow-15"></path><path data-g="0" d="M232,200 L528,200" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="140 1200" strokeDashoffset="140" className="flow-16"></path><path data-g="1" d="M672,200 L968,200" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="140 1200" strokeDashoffset="140" filter="url(#gw)" className="flow-17"></path><path data-g="1" d="M672,200 L968,200" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="140 1200" strokeDashoffset="140" className="flow-18"></path><path data-g="2" d="M1040,272 C1040,470 600,470 600,272" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="18" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gw)" className="flow-19"></path><path data-g="2" d="M1040,272 C1040,470 600,470 600,272" pathLength="1000" fill="none" stroke="var(--original-ff8ab5)" strokeWidth="6" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" className="flow-20"></path><text x="380" y="168" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-21">{"Financiranje"}</text><text x="380" y="240" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-22">{"LASTNI KAPITAL"}</text><text x="820" y="168" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-23">{"Investicija"}</text><text x="820" y="240" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-24">{"V PROJEKT"}</text><text x="820" y="490" textAnchor="middle" fontSize="26" fontWeight="600" letterSpacing="-0.6" className="flow-25">{"Večji donos +"}</text><circle cx="160" cy="200" r="72" strokeWidth="1.5" className="flow-26"></circle><circle data-n="0" cx="160" cy="200" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-27"></circle><image href={whiteLogo.url} x="104" y="185" width="112" height="32" className="flow-28"></image><image href={darkLogo.url} x="104" y="185" width="112" height="32" className="flow-29"></image><text x="160" y="312" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-30">{"terjatve.si"}</text><text x="160" y="338" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-31">{"FINANCER"}</text><circle cx="600" cy="200" r="72" strokeWidth="1.5" className="flow-32"></circle><circle data-n="1" cx="600" cy="200" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-33"></circle><text x="600" y="210" textAnchor="middle" fontSize="28" fontWeight="600" letterSpacing="-1" className="flow-34">{"Vi"}</text><text x="600" y="98" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-35">{"Vaše podjetje"}</text><circle cx="1040" cy="200" r="72" strokeWidth="1.5" className="flow-36"></circle><circle data-n="2" cx="1040" cy="200" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-37"></circle><path d="M1012,226 L1012,198 L1030,184 L1030,226 M1040,226 L1040,170 L1068,170 L1068,226 M1004,226 L1076,226" fill="none" strokeWidth="2" className="flow-38"></path><text x="1040" y="98" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-39">{"Projekt"}</text></svg></>}{v.narrow && <><svg viewBox="0 0 420 900" fontFamily="Geist, system-ui, sans-serif" className="flow-40"><defs className="flow-41"><filter id="gn" x="-50%" y="-20%" width="200%" height="140%" className="flow-42"><fegaussianblur stddeviation="7" className="flow-43"></fegaussianblur></filter></defs><path d="M120,176 L120,384" fill="none" strokeWidth="2" className="flow-44" style={{"--state-0": v.base0}}></path><path d="M120,496 L120,704" fill="none" strokeWidth="2" className="flow-45" style={{"--state-0": v.base1}}></path><path d="M176,760 C370,760 370,440 176,440" fill="none" strokeWidth="5" className="flow-46" style={{"--state-0": v.base2}}></path><path d="M112,376 L120,386 L128,376" fill="none" strokeWidth="2" className="flow-47" style={{"--state-0": v.base0}}></path><path d="M112,696 L120,706 L128,696" fill="none" strokeWidth="2" className="flow-48" style={{"--state-0": v.base1}}></path><path d="M188,430 L176,440 L188,450" fill="none" strokeWidth="3" className="flow-49" style={{"--state-0": v.base2}}></path><path data-g="0" d="M120,176 L120,384" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gn)" className="flow-50"></path><path data-g="0" d="M120,176 L120,384" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" className="flow-51"></path><path data-g="1" d="M120,496 L120,704" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gn)" className="flow-52"></path><path data-g="1" d="M120,496 L120,704" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" className="flow-53"></path><path data-g="2" d="M176,760 C370,760 370,440 176,440" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="18" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gn)" className="flow-54"></path><path data-g="2" d="M176,760 C370,760 370,440 176,440" pathLength="1000" fill="none" stroke="var(--original-ff8ab5)" strokeWidth="6" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" className="flow-55"></path><text x="148" y="276" fontSize="20" fontWeight="550" className="flow-56">{"Financiranje"}</text><text x="148" y="300" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.2" className="flow-57">{"LASTNI KAPITAL"}</text><text x="148" y="596" fontSize="20" fontWeight="550" className="flow-58">{"Investicija"}</text><text x="148" y="620" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.2" className="flow-59">{"V PROJEKT"}</text><text x="330" y="606" fontSize="20" fontWeight="600" textAnchor="start" className="flow-60">{"Donos +"}</text><circle cx="120" cy="120" r="56" strokeWidth="1.5" className="flow-61"></circle><circle data-n="0" cx="120" cy="120" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-62"></circle><image href={whiteLogo.url} x="78" y="108" width="84" height="24" className="flow-63"></image><image href={darkLogo.url} x="78" y="108" width="84" height="24" className="flow-64"></image><text x="196" y="116" fontSize="20" fontWeight="550" className="flow-65">{"terjatve.si"}</text><text x="196" y="140" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.2" className="flow-66">{"FINANCER"}</text><circle cx="120" cy="440" r="56" strokeWidth="1.5" className="flow-67"></circle><circle data-n="1" cx="120" cy="440" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-68"></circle><text x="120" y="449" textAnchor="middle" fontSize="24" fontWeight="600" className="flow-69">{"Vi"}</text><text x="20" y="530" fontSize="0" fill="none" className="flow-70"></text><circle cx="120" cy="760" r="56" strokeWidth="1.5" className="flow-71"></circle><circle data-n="2" cx="120" cy="760" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" className="flow-72"></circle><path d="M98,780 L98,758 L112,747 L112,780 M120,780 L120,736 L142,736 L142,780 M92,780 L148,780" fill="none" strokeWidth="2" className="flow-73"></path><text x="120" y="850" textAnchor="middle" fontSize="20" fontWeight="550" className="flow-74">{"Projekt"}</text><text x="120" y="378" fontSize="0" fill="none" className="flow-75"></text></svg><div className="flow-76">{"Vi = vaše podjetje"}</div></>}</div><div className="flow-77">{v.steps.map((s, itemIndex) => <React.Fragment key={itemIndex}><div onMouseEnter={s.enter} onMouseLeave={v.leave} className="flow-78"><div className="flow-79"><span className="flow-80">{s.n}</span><span className="flow-81"></span></div><h3 className="flow-82">{s.t}</h3><p className="flow-83">{s.d}</p></div></React.Fragment>)}</div></div></div></>; }
+  render() {
+    const v = this.renderVals();
+    const icon = (tr) => <g transform={tr} fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">{ICONS.map((g, i) => <g key={i} style={{ opacity: v['op' + i], transition: 'opacity .5s' }}>{g}</g>)}</g>;
+    return <div ref={v.rootRef} className="flow-1">
+      <div className="flow-2"></div>
+      <div className="flow-3">{v.tabs.map(t => (
+        <button type="button" key={t.i} onClick={t.pick} aria-pressed={t.on} className="flow-4" style={{ "--tbg": t.bg, "--tborder": t.border, "--tnum": t.numColor, "--tcolor": t.color, "--tbar": t.bar }}>
+          <span className="flow-5"></span>
+          <span data-tprog={t.i} className="flow-6"></span>
+          <span className="flow-7">{t.num}</span>
+          <span className="flow-8">{t.name}</span>
+        </button>
+      ))}</div>
+      <div className="flow-9">
+        {v.wide && <div data-wide=""><svg viewBox="0 0 1200 400" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
+          <defs><filter id="gw" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs>
+          <path d="M232,170 L528,170" fill="none" strokeWidth="2" className="flow-11"></path>
+          <path d="M672,170 L968,170" fill="none" strokeWidth="2" className="flow-11"></path>
+          <path d="M520,162 L530,170 L520,178" fill="none" strokeWidth="2" className="flow-12"></path>
+          <path d="M960,162 L970,170 L960,178" fill="none" strokeWidth="2" className="flow-12"></path>
+          <path data-g="0" d="M232,170 L528,170" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gw)"></path>
+          <path data-g="0" d="M232,170 L528,170" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160"></path>
+          <path data-g="1" d="M672,170 L968,170" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gw)"></path>
+          <path data-g="1" d="M672,170 L968,170" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160"></path>
+          <g data-swap="">
+            <text x="380" y="140" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-13">{v.cur.e1}</text>
+            <text x="380" y="210" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{v.cur.e1s}</text>
+            <text x="820" y="140" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-13">{v.cur.e2}</text>
+            <text x="820" y="210" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{v.cur.e2s}</text>
+            <text x="1040" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{v.cur.n3}</text>
+            <text x="1040" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-15">{v.cur.n3s}</text>
+          </g>
+          <circle cx="160" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="0" cx="160" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          <image href={whiteLogo.url} x="104" y="155" width="112" height="32" className="flow-19"></image>
+          <image href={darkLogo.url} x="104" y="155" width="112" height="32" className="flow-20"></image>
+          <text x="160" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
+          <text x="160" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"FINANCER"}</text>
+          <circle cx="600" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="1" cx="600" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          <text x="600" y="180" textAnchor="middle" fontSize="28" fontWeight="600" letterSpacing="-1" className="flow-13">{"Vi"}</text>
+          <text x="600" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
+          <text x="600" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"PREJEMNIK"}</text>
+          <circle cx="1040" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="2" cx="1040" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          {icon('translate(1040,170)')}
+        </svg></div>}
+        {v.narrow && <div data-narrow=""><svg viewBox="0 0 400 720" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
+          <defs><filter id="gn" x="-50%" y="-20%" width="200%" height="140%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs>
+          <path d="M100,156 L100,304" fill="none" strokeWidth="2" className="flow-11"></path>
+          <path d="M100,416 L100,564" fill="none" strokeWidth="2" className="flow-11"></path>
+          <path d="M92,296 L100,306 L108,296" fill="none" strokeWidth="2" className="flow-12"></path>
+          <path d="M92,556 L100,566 L108,556" fill="none" strokeWidth="2" className="flow-12"></path>
+          <path data-g="0" d="M100,156 L100,304" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gn)"></path>
+          <path data-g="0" d="M100,156 L100,304" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180"></path>
+          <path data-g="1" d="M100,416 L100,564" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gn)"></path>
+          <path data-g="1" d="M100,416 L100,564" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180"></path>
+          <g data-swap="">
+            <text x="134" y="226" fontSize="20" fontWeight="550" className="flow-13">{v.cur.e1}</text>
+            <text x="134" y="250" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{v.cur.e1s}</text>
+            <text x="134" y="486" fontSize="20" fontWeight="550" className="flow-13">{v.cur.e2}</text>
+            <text x="134" y="510" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{v.cur.e2s}</text>
+            <text x="176" y="616" fontSize="20" fontWeight="550" className="flow-13">{v.cur.n3}</text>
+            <text x="176" y="640" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-15">{v.cur.n3s}</text>
+          </g>
+          <circle cx="100" cy="100" r="56" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="0" cx="100" cy="100" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          <image href={whiteLogo.url} x="58" y="88" width="84" height="24" className="flow-19"></image>
+          <image href={darkLogo.url} x="58" y="88" width="84" height="24" className="flow-20"></image>
+          <text x="176" y="96" fontSize="20" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
+          <text x="176" y="120" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"FINANCER"}</text>
+          <circle cx="100" cy="360" r="56" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="1" cx="100" cy="360" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          <text x="100" y="369" textAnchor="middle" fontSize="24" fontWeight="600" className="flow-13">{"Vi"}</text>
+          <text x="176" y="356" fontSize="20" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
+          <text x="176" y="380" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"PREJEMNIK"}</text>
+          <circle cx="100" cy="620" r="56" strokeWidth="1.5" className="flow-16"></circle>
+          <circle data-n="2" cx="100" cy="620" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
+          {icon('translate(100,620) scale(.85)')}
+        </svg></div>}
+        <p data-swap="" className="flow-21">{v.cur.d}</p>
+      </div>
+    </div>;
+  }
 
   renderVals() {
-    const { wide, active } = this.state;
-    const base = i => active === i ? 'rgba(213,30,104,.9)' : i === 2 ? 'rgba(213,30,104,.35)' : 'rgba(var(--ink),.16)';
-    const steps = [
-      { n: '01', t: 'Financiranje', d: 'Mi vašemu podjetju zagotovimo sredstva iz lastnega kapitala – hitro in po individualnem dogovoru.' },
-      { n: '02', t: 'Investicija', d: 'Vaše podjetje sredstva vloži v projekt, terjatev ali tekoče poslovanje.' },
-      { n: '03', t: 'Večji donos', d: 'Projekt ustvari dodano vrednost, ki se kot večji donos vrne v vaše podjetje.' }
-    ].map((s, i) => ({ ...s, enter: () => this.setState({ active: i }) }));
-    return { rootRef: this.root, wide, narrow: !wide, base0: base(0), base1: base(1), base2: base(2), steps, leave: () => this.setState({ active: -1 }) };
+    const { wide, idx } = this.state;
+    const auto = this.props.autoplay ?? true;
+    const op = i => (i === idx ? 1 : 0);
+    const tabs = FLOWS.map((f, i) => { const on = i === idx; return { i, on, num: '0' + (i + 1), name: f.name, bg: on ? 'color-mix(in oklch, var(--brand) 10%, transparent)' : 'var(--cardA)', border: on ? 'color-mix(in oklch, var(--brand) 60%, transparent)' : 'rgba(var(--ink),.1)', numColor: on ? 'var(--brand)' : 'rgba(var(--ink),.28)', color: on ? 'var(--fg)' : 'var(--body)', bar: on && !auto ? 1 : 0, pick: () => this.pick(i) }; });
+    return { rootRef: this.root, wide, narrow: !wide, tabs, cur: FLOWS[idx], op0: op(0), op1: op(1), op2: op(2), op3: op(3) };
   }
 }
