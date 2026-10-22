@@ -145,8 +145,7 @@ export default class DesktopSite extends React.Component {
           last = key;
           circ.style.transform = lab ? 'scale(2.7)' : inter ? 'scale(1.6)' : 'scale(1)';
           circ.style.background = lab ? 'var(--brand)' : 'transparent';
-          circ.style.borderColor = lab ? 'var(--brand)' : inter ? 'var(--original-ffffff)' : 'rgba(255,255,255,.55)';
-          ring.style.mixBlendMode = lab ? 'normal' : 'difference';
+          circ.style.borderColor = lab ? 'var(--brand)' : inter ? 'color-mix(in oklch, var(--fg) 85%, transparent)' : 'color-mix(in oklch, var(--fg) 55%, transparent)';
           label.textContent = lab; label.style.opacity = lab ? '1' : '0';
         }
         ring.style.opacity = '1';
