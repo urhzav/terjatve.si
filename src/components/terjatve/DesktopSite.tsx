@@ -297,7 +297,7 @@ export default class DesktopSite extends React.Component {
     const fmt = b => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
     return {
       rootRef: this.root, stickyPos: 'relative', toggleTheme: () => this.applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light', true), wide,
-      services, featured: services.slice(0, 3),
+      services, featured: FEATURED_IDS.map(id => services.find(s => s.id === id)!).map((s, i) => ({ ...s, num: '0' + (i + 1), img: SERVICE_PHOTOS[s.id] })),
       marquee: [...this.MARQUEE, ...this.MARQUEE],
       steps: this.STEPS.map((s, i) => ({ ...s, delay: i * 110 })),
       reasons: this.REASONS.map((r, i) => ({ ...r, n: '0' + (i + 1) + ' / 05', delay: i * 80 })),
