@@ -7,6 +7,7 @@ import partnership from "@/assets/partnerstvo.jpg.asset.json";
 import MoneyFlow from "./MoneyFlow";
 import FeaturedServiceCard from "./FeaturedServiceCard";
 import BuildingPhoto from "./BuildingPhoto";
+import { FEATURED_IDS, SERVICE_PHOTOS } from "./servicePhotos";
 
 export default class MobileSite extends React.Component {
   SERVICES = [
