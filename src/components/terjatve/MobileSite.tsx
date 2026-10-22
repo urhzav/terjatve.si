@@ -49,11 +49,6 @@ export default class MobileSite extends React.Component {
     { t: 'Individualni dogovor', d: 'Vsak primer je drugačen, zato višino, obdobje, način vračila in pogoje financiranja določimo individualno.' },
     { t: 'Več kot 20 let izkušenj', d: 'Dolgoletne izkušnje na področju financiranja podjetij nam omogočajo hitro presojo različnih poslovnih situacij.' }
   ];
-  TESTIMONIALS = [
-    { tag: 'Hitrost', q: '»Financiranje smo potrebovali v zelo kratkem času. Od prvega pogovora do nakazila sredstev je minilo le nekaj dni.«', name: 'Ime Priimek', role: 'Direktor, Podjetje d.o.o.', ini: 'IP' },
-    { tag: 'Odzivnost', q: '»Vedno dosegljivi in odzivni. Na vsako vprašanje smo dobili jasen odgovor še isti dan.«', name: 'Ime Priimek', role: 'Direktorica, Podjetje d.o.o.', ini: 'IP' },
-    { tag: 'Prilagodljivost', q: '»Pogoje so oblikovali glede na naš projekt in ne obratno. Prav takšnega partnerja smo iskali.«', name: 'Ime Priimek', role: 'Direktor, Podjetje d.o.o.', ini: 'IP' }
-  ];
   MARQUEE = ['Lastni kapital', 'Hitra izvedba', 'Individualni dogovor', 'Do 5 milijonov €', 'Izvedba v 2–3 dneh', '20+ let izkušenj'];
   OPTS = ['Hipotekarno financiranje', 'Kratkoročno financiranje', 'Projektno financiranje', 'Odkup terjatev', 'Dobaviteljski faktoring', 'Drugo'];
 
