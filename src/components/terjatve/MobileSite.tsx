@@ -191,7 +191,7 @@ export default class MobileSite extends React.Component {
       services, featured: FEATURED_IDS.map(id => services.find(s => s.id === id)!).map((s, i) => ({ ...s, num: '0' + (i + 1), img: SERVICE_PHOTOS[s.id] })),
       slideLabel: '0' + (slide + 1) + ' / 04',
       dots: [0, 1, 2, 3].map(i => ({ w: i === slide ? '22px' : '6px', bg: i === slide ? 'var(--brand)' : 'rgba(var(--ink),.2)' })),
-      onRail: e => { const el = e.currentTarget, c = el.firstElementChild; if (!c) return; const i = Math.min(2, Math.round(el.scrollLeft / (c.offsetWidth + 10))); if (i !== slide) this.setState({ slide: i }); },
+      onRail: e => { const el = e.currentTarget, c = el.firstElementChild; if (!c) return; const i = Math.min(3, Math.round(el.scrollLeft / (c.offsetWidth + 10))); if (i !== slide) this.setState({ slide: i }); },
       marquee: [...this.MARQUEE, ...this.MARQUEE],
       steps: this.STEPS.map((s, i) => ({ ...s, delay: i * 90 })),
       reasons: this.REASONS.map((r, i) => ({ ...r, n: '0' + (i + 1), delay: i * 60 })),
