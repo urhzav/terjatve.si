@@ -823,41 +823,18 @@ option{background:var(--card2);color:var(--fg)}
 
 @media(min-width:1440px){.desktop-124{font-size:112px}}
 
-.featured-service{--h:0;--mx:50%;--my:50%;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:360px;padding:24px 24px 26px;border-radius:24px;background:var(--card);border:1px solid color-mix(in srgb,var(--fg) 8%,transparent);overflow:hidden;isolation:isolate;color:var(--fg);white-space:normal;transform:translateY(calc(var(--h) * -6px));transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s;text-align:left;}
+.featured-service{--h:0;--mx:50%;--my:50%;position:relative;display:flex;flex-direction:column;aspect-ratio:1/1;min-width:0;padding:8px;border-radius:24px;background:var(--card);border:1px solid color-mix(in srgb,var(--fg) 8%,transparent);overflow:hidden;isolation:isolate;color:var(--fg);white-space:normal;transform:translateY(calc(var(--h) * -6px));transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .4s;text-align:left;}
 .featured-service:hover,.featured-service:focus-visible{--h:1;border-color:color-mix(in srgb,var(--brand) 55%,transparent);color:var(--fg);}
 .featured-service__spot{position:absolute;inset:0;z-index:-1;background:radial-gradient(380px circle at var(--mx) var(--my),color-mix(in srgb,var(--brand) 22%,transparent),transparent 65%);opacity:var(--h);transition:opacity .45s;}
-.featured-service__top{display:flex;justify-content:space-between;align-items:center;}
-.featured-service__number{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:0;color:var(--mute);}
-.featured-service__arrow{width:46px;height:46px;flex:none;border-radius:50%;border:1px solid color-mix(in srgb,var(--fg) 18%,transparent);background:color-mix(in srgb,var(--brand) calc(var(--h) * 100%),transparent);display:grid;place-items:center;transform:rotate(calc(-45deg + var(--h) * 45deg));transition:transform .55s cubic-bezier(.16,1,.3,1),background .35s;}
-.featured-service__copy{display:flex;flex-direction:column;gap:10px;}
-.featured-service__title{font-size:30px;font-weight:550;letter-spacing:0;line-height:1.02;overflow-wrap:break-word;}
-.featured-service__description{font-size:15px;line-height:1.5;color:var(--body);max-width:30ch;}
+.featured-service__photo{position:relative;flex:1;min-height:0;border-radius:17px;overflow:hidden;background:var(--card2);}
+.featured-service__photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.featured-service__badge{position:absolute;left:12px;top:12px;padding:6px 10px;border-radius:999px;background:rgba(10,10,11,.72);backdrop-filter:blur(8px);font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--original-f6f5f2,#F4F4F5);pointer-events:none;}
+.featured-service__arrow{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;background:color-mix(in srgb,var(--brand) calc(55% + var(--h) * 45%),transparent);color:var(--original-ffffff,#fff);display:grid;place-items:center;pointer-events:none;transform:rotate(calc(-45deg + var(--h) * 45deg));transition:transform .55s cubic-bezier(.16,1,.3,1),background .35s;}
+.featured-service__copy{flex:none;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0;width:100%;padding:16px 12px 12px;}
+.featured-service__title{font-size:clamp(22px,1.9vw,27px);font-weight:550;letter-spacing:-.035em;line-height:1.05;min-height:2.1em;display:flex;align-items:flex-end;text-wrap:balance;}
+.featured-service__description{font-size:14px;line-height:1.4;color:var(--body);min-height:2.8em;text-wrap:pretty;}
 .mobile-534>.featured-service{flex:0 0 86%;scroll-snap-align:start;}
-.mobile-534 .featured-service__title{font-size:26px;}
-.featured-service>svg{min-height:0;}
-.featured-art-1{display:block;width:100%;max-width:260px;height:auto;align-self:center;overflow:visible}
-.featured-art-2{stroke:var(--fg)}
-.featured-art-3{stroke-dasharray:100;stroke-dashoffset:calc(40 - var(--h) * 40);transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1)}
-.featured-art-4{stroke:var(--fg)}
-.featured-art-5{transform:translate(calc(var(--h) * -6px),calc(var(--h) * -4px));transition:transform .8s cubic-bezier(.16,1,.3,1)}
-.featured-art-6{fill:var(--card);stroke:var(--brand)}
-.featured-art-7{transform-box:fill-box;transform-origin:center;transform:scale(calc(1 + var(--h) * .6));transition:transform .5s}
-.featured-art-8{display:block;width:100%;max-width:260px;height:auto;align-self:center;overflow:visible}
-.featured-art-9{transform:translateX(calc(var(--h) * -8px));transition:transform .7s cubic-bezier(.16,1,.3,1)}
-.featured-art-10{stroke:var(--fg)}
-.featured-art-11{stroke:var(--fg)}
-.featured-art-12{stroke:var(--fg)}
-.featured-art-13{stroke-dasharray:100;stroke-dashoffset:calc(72 - var(--h) * 72);transition:stroke-dashoffset 1.1s cubic-bezier(.16,1,.3,1)}
-.featured-art-14{transform-box:view-box;transform-origin:104px 64px;transform:rotate(calc(var(--h) * 300deg));transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
-.featured-art-15{transform-box:view-box;transform-origin:104px 34px;transform:rotate(calc(var(--h) * -300deg));transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
-.featured-art-16{fill:var(--card)}
-.featured-art-17{display:block;width:100%;max-width:260px;height:auto;align-self:center;overflow:visible}
-.featured-art-18{stroke:var(--fg)}
-.featured-art-19{stroke:var(--fg)}
-.featured-art-20{stroke:var(--fg)}
-.featured-art-21{transform-box:fill-box;transform-origin:bottom;transform:scaleY(calc(.45 + var(--h) * .55));transition:transform 1s cubic-bezier(.16,1,.3,1)}
-.featured-art-22{stroke-dasharray:100;stroke-dashoffset:calc(55 - var(--h) * 55);transition:stroke-dashoffset 1.1s cubic-bezier(.16,1,.3,1)}
-.featured-art-23{opacity:var(--h);transition:opacity .4s .6s}
+.mobile-534 .featured-service__title{font-size:24px;}
 
 .building-photo{--photo-shadow:0 -4px 26px rgba(0,0,0,.55);--photo-panel-shadow:0 20px 46px rgba(0,0,0,.45);position:relative;width:100%;margin-top:clamp(30px,4vw,56px)}
 html[data-theme=light] .building-photo{--photo-shadow:0 -4px 22px rgba(10,10,11,.16);--photo-panel-shadow:0 16px 34px rgba(10,10,11,.1)}
