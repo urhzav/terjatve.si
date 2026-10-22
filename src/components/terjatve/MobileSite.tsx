@@ -186,7 +186,7 @@ export default class MobileSite extends React.Component {
         go: e => this.go(e, s.id) };
     });
     const fmt = b => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
-    const items = [['#storitve', 'Storitve'], ['#sodelovanje', 'Sodelovanje'], ['#prednosti', 'Prednosti'], ['#o-nas', 'O nas'], ['#reference', 'Reference'], ['#kontakt', 'Kontakt']];
+    const items = [['#storitve', 'Storitve'], ['#sodelovanje', 'Sodelovanje'], ['#prednosti', 'Prednosti'], ['#o-nas', 'O nas'], ['#kontakt', 'Kontakt']];
     return {
       rootRef: this.root, toggleTheme: () => this.applyTheme(document.documentElement.dataset.theme === 'light' ? 'dark' : 'light', true), menuOpen: menu,
       toggleMenu: () => this.setMenu(!menu), closeMenu: () => this.setMenu(false),
@@ -199,9 +199,6 @@ export default class MobileSite extends React.Component {
       marquee: [...this.MARQUEE, ...this.MARQUEE],
       steps: this.STEPS.map((s, i) => ({ ...s, delay: i * 90 })),
       reasons: this.REASONS.map((r, i) => ({ ...r, n: '0' + (i + 1), delay: i * 60 })),
-      testimonials: this.TESTIMONIALS,
-      logos: Array.from({ length: 12 }, (_, i) => ({ n: String((i % 6) + 1).padStart(2, '0') })),
-      showRefs: this.props.showReferences ?? true,
       serviceOpts: this.OPTS.map(label => { const on = service === label; return { label, bg: on ? 'var(--brand)' : 'transparent', border: on ? 'var(--brand)' : 'rgba(var(--ink),.18)', color: on ? 'var(--original-ffffff)' : 'var(--soft)', pick: () => this.setState({ service: label, errors: { ...errors, service: null } }) }; }),
       errors, files, hasFiles: files.length > 0,
       onFiles: e => this.setState({ files: Array.from(e.target.files || []).map(f => ({ name: f.name, size: fmt(f.size) })) }),
