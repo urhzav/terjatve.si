@@ -2,6 +2,8 @@
 import React from "react";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
 import darkLogo from "@/assets/logo.png.asset.json";
+import handshake from "@/assets/rokovanje.jpg.asset.json";
+import { SERVICE_PHOTOS, FEATURED_IDS } from "./servicePhotos";
 
 const FLOWS = [
   { name: 'Hipotekarni krediti', e1: 'Financiranje', e1s: 'DO 5 MIO €', e2: 'Naložba', e2s: 'ZAVAROVANO Z NEPREMIČNINO', n3: 'Nepremičnina', n3s: 'ZAVAROVANJE',
@@ -14,24 +16,26 @@ const FLOWS = [
     d: 'Financiramo poslovne in investicijske projekte – pogoje oblikujemo glede na namen in višino investicije.' }
 ];
 
+const NODE_PHOTOS = FEATURED_IDS.map(id => SERVICE_PHOTOS[id]);
+
 const ICONS = [
   <>
-    <path d="M-22,22 V-2 L0,-20 L22,-2 V22 Z M-6,22 V8 H6 V22" className="flow-17"></path>
-    <path d="M-29,3 L0,-24 L29,3" strokeWidth="3" className="flow-18"></path>
+    <path d="M-22,22 V-2 L0,-20 L22,-2 V22 Z M-6,22 V8 H6 V22" className="flow-23"></path>
+    <path d="M-29,3 L0,-24 L29,3" strokeWidth="3" className="flow-23"></path>
   </>,
   <>
-    <path d="M-16,-24 H8 L18,-14 V24 H-16 Z M8,-24 V-14 H18 M-9,-6 H10 M-9,2 H10" className="flow-17"></path>
-    <path d="M-8,13 L-2,18 L10,8" strokeWidth="3" className="flow-18"></path>
+    <path d="M-16,-24 H8 L18,-14 V24 H-16 Z M8,-24 V-14 H18 M-9,-6 H10 M-9,2 H10" className="flow-23"></path>
+    <path d="M-8,13 L-2,18 L10,8" strokeWidth="3" className="flow-23"></path>
   </>,
   <>
-    <circle cx="0" cy="5" r="19" className="flow-17"></circle>
-    <path d="M-6,-21 H6 M0,-21 V-14 M15,-11 L19,-15" className="flow-17"></path>
-    <path d="M0,5 L9,-5" strokeWidth="3" className="flow-18"></path>
-    <circle cx="0" cy="5" r="2.5" fill="var(--brand)" stroke="none"></circle>
+    <circle cx="0" cy="5" r="19" className="flow-23"></circle>
+    <path d="M-6,-21 H6 M0,-21 V-14 M15,-11 L19,-15" className="flow-23"></path>
+    <path d="M0,5 L9,-5" strokeWidth="3" className="flow-23"></path>
+    <circle cx="0" cy="5" r="2.5" fill="#FFFFFF" stroke="none"></circle>
   </>,
   <>
-    <path d="M-28,24 V2 L-11,-9 V24 M-3,24 V-24 H25 V24 M-34,24 H34" className="flow-17"></path>
-    <path d="M5,-14 H8 M15,-14 H18 M5,-4 H8 M15,-4 H18 M5,6 H8 M15,6 H18" strokeWidth="3" className="flow-18"></path>
+    <path d="M-28,24 V2 L-11,-9 V24 M-3,24 V-24 H25 V24 M-34,24 H34" className="flow-23"></path>
+    <path d="M5,-14 H8 M15,-14 H18 M5,-4 H8 M15,-4 H18 M5,6 H8 M15,6 H18" strokeWidth="3" className="flow-23"></path>
   </>
 ];
 
@@ -103,7 +107,10 @@ export default class MoneyFlow extends React.Component {
 
   render() {
     const v = this.renderVals();
-    const icon = (tr) => <g transform={tr} fill="none" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">{ICONS.map((g, i) => <g key={i} style={{ opacity: v['op' + i], transition: 'opacity .5s' }}>{g}</g>)}</g>;
+    const photos = (x, y, size) => NODE_PHOTOS.map((src, i) => (
+      <image key={i} href={src} x={x} y={y} width={size} height={size} preserveAspectRatio="xMidYMid slice" style={{ opacity: v['op' + i], transition: 'opacity .6s' }}></image>
+    ));
+    const badge = (tr) => <g transform={tr} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">{ICONS.map((g, i) => <g key={i} style={{ opacity: v['op' + i], transition: 'opacity .5s' }}>{g}</g>)}</g>;
     return <div ref={v.rootRef} className="flow-1">
       <div className="flow-2"></div>
       <div className="flow-3">{v.tabs.map(t => (
@@ -116,7 +123,11 @@ export default class MoneyFlow extends React.Component {
       ))}</div>
       <div className="flow-9">
         {v.wide && <div data-wide=""><svg viewBox="0 0 1200 400" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
-          <defs><filter id="gw" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs>
+          <defs>
+            <filter id="gw" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter>
+            <clipPath id="wc1"><circle cx="600" cy="170" r="70"></circle></clipPath>
+            <clipPath id="wc2"><circle cx="1040" cy="170" r="70"></circle></clipPath>
+          </defs>
           <path d="M232,170 L528,170" fill="none" strokeWidth="2" className="flow-11"></path>
           <path d="M672,170 L968,170" fill="none" strokeWidth="2" className="flow-11"></path>
           <path d="M520,162 L530,170 L520,178" fill="none" strokeWidth="2" className="flow-12"></path>
@@ -140,16 +151,25 @@ export default class MoneyFlow extends React.Component {
           <text x="160" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
           <text x="160" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"FINANCER"}</text>
           <circle cx="600" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
-          <circle data-n="1" cx="600" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <text x="600" y="180" textAnchor="middle" fontSize="28" fontWeight="600" letterSpacing="-1" className="flow-13">{"Vi"}</text>
+          <g clipPath="url(#wc1)">
+            <image href={handshake.url} x="528" y="98" width="144" height="144" preserveAspectRatio="xMidYMid slice"></image>
+            <rect x="528" y="98" width="144" height="144" fill="rgba(10,10,11,.35)"></rect>
+          </g>
           <text x="600" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
           <text x="600" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"PREJEMNIK"}</text>
           <circle cx="1040" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
+          <g clipPath="url(#wc2)">{photos(968, 98, 144)}</g>
+          <circle cx="1091.84" cy="221.84" r="24" className="flow-22"></circle>
+          {badge('translate(1091.84,221.84) scale(0.5)')}
+          <circle data-n="1" cx="600" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
           <circle data-n="2" cx="1040" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          {icon('translate(1040,170)')}
         </svg></div>}
         {v.narrow && <div data-narrow=""><svg viewBox="0 0 400 720" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
-          <defs><filter id="gn" x="-50%" y="-20%" width="200%" height="140%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter></defs>
+          <defs>
+            <filter id="gn" x="-50%" y="-20%" width="200%" height="140%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter>
+            <clipPath id="nc1"><circle cx="100" cy="360" r="54"></circle></clipPath>
+            <clipPath id="nc2"><circle cx="100" cy="620" r="54"></circle></clipPath>
+          </defs>
           <path d="M100,156 L100,304" fill="none" strokeWidth="2" className="flow-11"></path>
           <path d="M100,416 L100,564" fill="none" strokeWidth="2" className="flow-11"></path>
           <path d="M92,296 L100,306 L108,296" fill="none" strokeWidth="2" className="flow-12"></path>
@@ -173,13 +193,18 @@ export default class MoneyFlow extends React.Component {
           <text x="176" y="96" fontSize="20" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
           <text x="176" y="120" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"FINANCER"}</text>
           <circle cx="100" cy="360" r="56" strokeWidth="1.5" className="flow-16"></circle>
-          <circle data-n="1" cx="100" cy="360" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <text x="100" y="369" textAnchor="middle" fontSize="24" fontWeight="600" className="flow-13">{"Vi"}</text>
+          <g clipPath="url(#nc1)">
+            <image href={handshake.url} x="44" y="304" width="112" height="112" preserveAspectRatio="xMidYMid slice"></image>
+            <rect x="44" y="304" width="112" height="112" fill="rgba(10,10,11,.35)"></rect>
+          </g>
           <text x="176" y="356" fontSize="20" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
           <text x="176" y="380" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"PREJEMNIK"}</text>
           <circle cx="100" cy="620" r="56" strokeWidth="1.5" className="flow-16"></circle>
+          <g clipPath="url(#nc2)">{photos(44, 564, 112)}</g>
+          <circle cx="140.32" cy="660.32" r="18.67" className="flow-22"></circle>
+          {badge('translate(140.32,660.32) scale(0.3889)')}
+          <circle data-n="1" cx="100" cy="360" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
           <circle data-n="2" cx="100" cy="620" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          {icon('translate(100,620) scale(.85)')}
         </svg></div>}
         <p data-swap="" className="flow-21">{v.cur.d}</p>
       </div>
