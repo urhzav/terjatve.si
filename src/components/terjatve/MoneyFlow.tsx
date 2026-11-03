@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
 import darkLogo from "@/assets/logo.png.asset.json";
-import companyPhoto from "@/assets/service_receivables.png.asset.json";
+import companyPhoto from "@/assets/podjetje.jpg.asset.json";
 import { SERVICE_PHOTOS, FEATURED_IDS } from "./servicePhotos";
 
 const FLOWS = [
