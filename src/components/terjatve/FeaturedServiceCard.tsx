@@ -4,7 +4,6 @@ import { SERVICE_PHOTOS } from "./servicePhotos";
 
 type FeaturedService = {
   id: string;
-  num: string;
   name: string;
   tag: string;
   go: (event: MouseEvent<HTMLAnchorElement>) => void;
@@ -23,8 +22,7 @@ export default function FeaturedServiceCard({ service }: { service: FeaturedServ
       <a href={`#svc-${service.id}`} onClick={service.go} onPointerMove={move} data-spot="" data-cursor="Odpri" className="featured-service">
         <span className="featured-service__spot" />
         <span className="featured-service__photo">
-          {img && <img src={img} alt="" loading="lazy" />}
-          <span className="featured-service__badge">{service.num}</span>
+           {img && <img src={img} alt="" loading="lazy" />}
           <span className="featured-service__arrow"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.6" /></svg></span>
         </span>
         <span className="featured-service__copy"><span className="featured-service__title">{service.name}</span><span className="featured-service__description">{service.tag}</span></span>
