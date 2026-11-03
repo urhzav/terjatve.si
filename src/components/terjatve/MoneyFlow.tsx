@@ -1,8 +1,9 @@
 // @ts-nocheck — Faithfully migrated user-supplied JavaScript class and template.
 import React from "react";
+import { Button } from "@/components/ui/button";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
 import darkLogo from "@/assets/logo.png.asset.json";
-import handshake from "@/assets/rokovanje.jpg.asset.json";
+import companyPhoto from "@/assets/service_receivables.png.asset.json";
 import { SERVICE_PHOTOS, FEATURED_IDS } from "./servicePhotos";
 
 const FLOWS = [
@@ -107,105 +108,45 @@ export default class MoneyFlow extends React.Component {
 
   render() {
     const v = this.renderVals();
-    const photos = (x, y, size) => NODE_PHOTOS.map((src, i) => (
-      <image key={i} href={src} x={x} y={y} width={size} height={size} preserveAspectRatio="xMidYMid slice" style={{ opacity: v['op' + i], transition: 'opacity .6s' }}></image>
-    ));
-    const badge = (tr) => <g transform={tr} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">{ICONS.map((g, i) => <g key={i} style={{ opacity: v['op' + i], transition: 'opacity .5s' }}>{g}</g>)}</g>;
     return <div ref={v.rootRef} className="flow-1">
-      <div className="flow-2"></div>
       <div className="flow-3">{v.tabs.map(t => (
-        <button type="button" key={t.i} onClick={t.pick} aria-pressed={t.on} className="flow-4" style={{ "--tbg": t.bg, "--tborder": t.border, "--tnum": t.numColor, "--tcolor": t.color, "--tbar": t.bar }}>
-          <span className="flow-5"></span>
-          <span data-tprog={t.i} className="flow-6"></span>
-          <span className="flow-7">{t.num}</span>
-          <span className="flow-8">{t.name}</span>
-        </button>
+        <Button variant="original" size="original" type="button" key={t.i} onClick={t.pick} aria-pressed={t.on} className="flow-4" style={{ "--tbg": t.bg, "--tborder": t.border, "--tcolor": t.color, "--tbar": t.bar }}>
+          <span className="flow-5" /><span data-tprog={t.i} className="flow-6" /><span className="flow-8">{t.name}</span>
+        </Button>
       ))}</div>
       <div className="flow-9">
-        {v.wide && <div data-wide=""><svg viewBox="0 0 1200 400" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
+        <svg viewBox="0 0 1200 440" className="flow-10" role="img" aria-label={`${v.cur.name}: terjatve.si, vaše podjetje, poslovanje`}>
           <defs>
-            <filter id="gw" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter>
-            <clipPath id="wc1"><circle cx="600" cy="170" r="70"></circle></clipPath>
-            <clipPath id="wc2"><circle cx="1040" cy="170" r="70"></circle></clipPath>
+            <clipPath id="company-frame"><rect x="470" y="100" width="260" height="250" rx="16" /></clipPath>
+            <clipPath id="business-frame"><rect x="900" y="100" width="260" height="250" rx="16" /></clipPath>
+            <linearGradient id="flow-photo-shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" className="photo-shade-start" /><stop offset="1" className="photo-shade-end" /></linearGradient>
           </defs>
-          <path d="M232,170 L528,170" fill="none" strokeWidth="2" className="flow-11"></path>
-          <path d="M672,170 L968,170" fill="none" strokeWidth="2" className="flow-11"></path>
-          <path d="M520,162 L530,170 L520,178" fill="none" strokeWidth="2" className="flow-12"></path>
-          <path d="M960,162 L970,170 L960,178" fill="none" strokeWidth="2" className="flow-12"></path>
-          <path data-g="0" d="M232,170 L528,170" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gw)"></path>
-          <path data-g="0" d="M232,170 L528,170" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160"></path>
-          <path data-g="1" d="M672,170 L968,170" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" filter="url(#gw)"></path>
-          <path data-g="1" d="M672,170 L968,170" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160"></path>
+          {[{x1:300,x2:470,i:0},{x1:730,x2:900,i:1}].map(edge => <g key={edge.i}>
+            <path d={`M${edge.x1},210 H${edge.x2}`} fill="none" strokeWidth="2" className="flow-11" />
+            <path d={`M${edge.x2-12},202 L${edge.x2-2},210 L${edge.x2-12},218`} fill="none" strokeWidth="2" className="flow-18" />
+            <path data-g={edge.i} d={`M${edge.x1},210 H${edge.x2}`} pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="4" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" />
+          </g>)}
           <g data-swap="">
-            <text x="380" y="140" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-13">{v.cur.e1}</text>
-            <text x="380" y="210" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{v.cur.e1s}</text>
-            <text x="820" y="140" textAnchor="middle" fontSize="22" fontWeight="550" letterSpacing="-0.5" className="flow-13">{v.cur.e2}</text>
-            <text x="820" y="210" textAnchor="middle" fontSize="13" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{v.cur.e2s}</text>
-            <text x="1040" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{v.cur.n3}</text>
-            <text x="1040" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-15">{v.cur.n3s}</text>
+            <text x="385" y="160" textAnchor="middle" fontSize="19" className="flow-13">{v.cur.e1}</text>
+            <text x="815" y="160" textAnchor="middle" fontSize="19" className="flow-13">{v.cur.e2}</text>
           </g>
-          <circle cx="160" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
-          <circle data-n="0" cx="160" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <image href={whiteLogo.url} x="104" y="155" width="112" height="32" className="flow-19"></image>
-          <image href={darkLogo.url} x="104" y="155" width="112" height="32" className="flow-20"></image>
-          <text x="160" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
-          <text x="160" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"FINANCER"}</text>
-          <circle cx="600" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
-          <g clipPath="url(#wc1)">
-            <image href={handshake.url} x="528" y="98" width="144" height="144" preserveAspectRatio="xMidYMid slice"></image>
-            <rect x="528" y="98" width="144" height="144" fill="rgba(10,10,11,.35)"></rect>
+          <rect x="40" y="100" width="260" height="250" rx="16" className="flow-16" />
+          <image href={whiteLogo.url} x="70" y="175" width="200" height="57" className="flow-19" />
+          <image href={darkLogo.url} x="70" y="175" width="200" height="57" className="flow-20" />
+          <text x="64" y="314" fontSize="23" className="flow-13">terjatve.si</text>
+          <g clipPath="url(#company-frame)">
+            <image href={companyPhoto.url} x="470" y="100" width="260" height="250" preserveAspectRatio="xMidYMid slice" />
+            <rect x="470" y="200" width="260" height="150" fill="url(#flow-photo-shade)" />
           </g>
-          <text x="600" y="282" textAnchor="middle" fontSize="22" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
-          <text x="600" y="308" textAnchor="middle" fontSize="12" fontFamily="Geist Mono, monospace" letterSpacing="1.5" className="flow-14">{"PREJEMNIK"}</text>
-          <circle cx="1040" cy="170" r="72" strokeWidth="1.5" className="flow-16"></circle>
-          <g clipPath="url(#wc2)">{photos(968, 98, 144)}</g>
-          <circle cx="1091.84" cy="221.84" r="24" className="flow-22"></circle>
-          {badge('translate(1091.84,221.84) scale(0.5)')}
-          <circle data-n="1" cx="600" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <circle data-n="2" cx="1040" cy="170" r="72" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-        </svg></div>}
-        {v.narrow && <div data-narrow=""><svg viewBox="0 0 400 720" fontFamily="Geist, system-ui, sans-serif" className="flow-10">
-          <defs>
-            <filter id="gn" x="-50%" y="-20%" width="200%" height="140%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter>
-            <clipPath id="nc1"><circle cx="100" cy="360" r="54"></circle></clipPath>
-            <clipPath id="nc2"><circle cx="100" cy="620" r="54"></circle></clipPath>
-          </defs>
-          <path d="M100,156 L100,304" fill="none" strokeWidth="2" className="flow-11"></path>
-          <path d="M100,416 L100,564" fill="none" strokeWidth="2" className="flow-11"></path>
-          <path d="M92,296 L100,306 L108,296" fill="none" strokeWidth="2" className="flow-12"></path>
-          <path d="M92,556 L100,566 L108,556" fill="none" strokeWidth="2" className="flow-12"></path>
-          <path data-g="0" d="M100,156 L100,304" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gn)"></path>
-          <path data-g="0" d="M100,156 L100,304" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180"></path>
-          <path data-g="1" d="M100,416 L100,564" pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="10" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180" filter="url(#gn)"></path>
-          <path data-g="1" d="M100,416 L100,564" pathLength="1000" fill="none" stroke="var(--pink2)" strokeWidth="3" strokeLinecap="round" strokeDasharray="180 1200" strokeDashoffset="180"></path>
-          <g data-swap="">
-            <text x="134" y="226" fontSize="20" fontWeight="550" className="flow-13">{v.cur.e1}</text>
-            <text x="134" y="250" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{v.cur.e1s}</text>
-            <text x="134" y="486" fontSize="20" fontWeight="550" className="flow-13">{v.cur.e2}</text>
-            <text x="134" y="510" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{v.cur.e2s}</text>
-            <text x="176" y="616" fontSize="20" fontWeight="550" className="flow-13">{v.cur.n3}</text>
-            <text x="176" y="640" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-15">{v.cur.n3s}</text>
+          <text x="494" y="310" fontSize="23" className="flow-photo-label">Vaše podjetje</text>
+          <g clipPath="url(#business-frame)">
+            {NODE_PHOTOS.map((src,i) => <image key={src} href={src} x="900" y="100" width="260" height="250" preserveAspectRatio="xMidYMid slice" className={`flow-service-photo${i===this.state.idx ? ' is-active' : ''}`} />)}
+            <rect x="900" y="200" width="260" height="150" fill="url(#flow-photo-shade)" />
           </g>
-          <circle cx="100" cy="100" r="56" strokeWidth="1.5" className="flow-16"></circle>
-          <circle data-n="0" cx="100" cy="100" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <image href={whiteLogo.url} x="58" y="88" width="84" height="24" className="flow-19"></image>
-          <image href={darkLogo.url} x="58" y="88" width="84" height="24" className="flow-20"></image>
-          <text x="176" y="96" fontSize="20" fontWeight="550" className="flow-13">{"terjatve.si"}</text>
-          <text x="176" y="120" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"FINANCER"}</text>
-          <circle cx="100" cy="360" r="56" strokeWidth="1.5" className="flow-16"></circle>
-          <g clipPath="url(#nc1)">
-            <image href={handshake.url} x="44" y="304" width="112" height="112" preserveAspectRatio="xMidYMid slice"></image>
-            <rect x="44" y="304" width="112" height="112" fill="rgba(10,10,11,.35)"></rect>
-          </g>
-          <text x="176" y="356" fontSize="20" fontWeight="550" className="flow-13">{"Vaše podjetje"}</text>
-          <text x="176" y="380" fontSize="11.5" fontFamily="Geist Mono, monospace" letterSpacing="1.1" className="flow-14">{"PREJEMNIK"}</text>
-          <circle cx="100" cy="620" r="56" strokeWidth="1.5" className="flow-16"></circle>
-          <g clipPath="url(#nc2)">{photos(44, 564, 112)}</g>
-          <circle cx="140.32" cy="660.32" r="18.67" className="flow-22"></circle>
-          {badge('translate(140.32,660.32) scale(0.3889)')}
-          <circle data-n="1" cx="100" cy="360" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-          <circle data-n="2" cx="100" cy="620" r="56" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0"></circle>
-        </svg></div>}
+          <text x="924" y="310" fontSize="23" className="flow-photo-label">Poslovanje</text>
+          <g data-swap=""><text x="1030" y="386" textAnchor="middle" fontSize="20" className="flow-15">{v.cur.n3}</text></g>
+          {[40,470,900].map((x,i) => <rect key={x} data-n={i} x={x} y="100" width="260" height="250" rx="16" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" />)}
+        </svg>
         <p data-swap="" className="flow-21">{v.cur.d}</p>
       </div>
     </div>;
