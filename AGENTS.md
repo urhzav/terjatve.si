@@ -13,4 +13,4 @@
 - Centralize imported visual declarations in src/styles.css; React state may supply only dynamic CSS variables.
 - Inquiry delivery is not connected; validate inputs but never claim receipt without actual delivery.
 - Mount the shared loading overlay alongside the viewport-selected page; dismiss it after the logo animation, with a bounded asset-loading fallback, so the existing page remains the destination.
-- Share illustrated featured-service cards across desktop and mobile views, inheriting site theme tokens and retaining each view's navigation handlers and card layout.
+- Share photographic featured-service cards and a canonical service-photo mapping across desktop, mobile, opened details and the money-flow diagram so each service retains the same subject and navigation handlers.

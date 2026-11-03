@@ -1,4 +1,5 @@
 # Tasks
+- [x] Apply client document feedback: headings, numbering, logo, marquee, photo service cards/details, and enlarged photo diagram; verify both views.
 - [x] Transfer the desktop and mobile templates and money-flow animation.
 - [x] Use uploaded logos and photo; set favicon and page metadata.
 - [x] Verify both layouts and interactive controls.
