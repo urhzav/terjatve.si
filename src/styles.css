@@ -58,7 +58,7 @@ option{background:var(--card2);color:var(--fg)}
 .flow-7{font-size:clamp(30px,4.4vw,56px);font-weight:550;letter-spacing:-0.06em;line-height:.9;color:var(--tnum);transition:color .35s}
 .flow-8{font-size:clamp(11.5px,1.1vw,14px);font-weight:500;line-height:1.25;color:var(--tcolor);text-wrap:balance;transition:color .35s}
 .flow-9{position:relative;border-radius:28px;border:1px solid rgba(var(--ink),.08);background:var(--cardA);padding:clamp(12px,3vw,40px)}
-.flow-10{display:block;width:100%;height:auto;overflow:visible;will-change:transform}
+.flow-10{display:block;width:100%;height:auto;overflow:visible}
 .flow-11{stroke:rgba(var(--ink),.16)}
 .flow-12{stroke:rgba(var(--ink),.3)}
 .flow-13{fill:var(--fg)}
