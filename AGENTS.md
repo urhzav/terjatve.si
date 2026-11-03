@@ -14,3 +14,4 @@
 - Inquiry delivery is not connected; validate inputs but never claim receipt without actual delivery.
 - Mount the shared loading overlay alongside the viewport-selected page; dismiss it after the logo animation, with a bounded asset-loading fallback, so the existing page remains the destination.
 - Share photographic featured-service cards and a canonical service-photo mapping across desktop, mobile, opened details and the money-flow diagram so each service retains the same subject and navigation handlers.
+- Render money-flow nodes and connectors as a responsive CSS grid, stacking them on narrow screens and pausing their animations offscreen, to match the supplied layout without horizontal dragging or unnecessary background animation.
