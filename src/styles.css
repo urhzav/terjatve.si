@@ -96,8 +96,8 @@ option{background:var(--card2);color:var(--fg)}
 .desktop-91{position:relative;max-width:1320px;margin:0 auto;padding:16px clamp(20px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:24px}
 .desktop-92{display:flex;align-items:center;transition:opacity .3s}
 .desktop-92:hover{opacity:.8}
-.desktop-93{height:42px;width:auto;display:var(--logoD)}
-.desktop-94{height:42px;width:auto;display:var(--logoL)}
+.desktop-93{height:50px;width:auto;display:var(--logoD)}
+.desktop-94{height:50px;width:auto;display:var(--logoL)}
 .desktop-95{display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;border:1px solid rgba(var(--ink),.08);background:rgba(var(--ink),.03)}
 .desktop-96{--h:0;position:relative;padding:9px 16px;border-radius:999px;font-size:14px;color:var(--soft);transition:color .25s,background .25s}
 .desktop-96:hover{--h:1;color:var(--original-ffffff);background:rgba(var(--ink),.06)}
@@ -494,8 +494,9 @@ option{background:var(--card2);color:var(--fg)}
 .mobile-476{position:absolute;inset:0;background:rgba(var(--bgc),.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(var(--ink),.07);opacity:var(--s);transition:opacity .3s}
 .mobile-477{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--brand);transform-origin:left;transform:scaleX(var(--sp))}
 .mobile-478{position:relative;display:flex;align-items:center;justify-content:space-between;padding:12px 16px 12px 20px}
-.mobile-480{height:33px;width:auto;display:var(--logoD)}
-.mobile-481{height:33px;width:auto;display:var(--logoL)}
+.mobile-479{min-width:0;max-width:calc(100% - 116px)}
+.mobile-480{height:39px;width:auto;max-width:100%;object-fit:contain;display:var(--logoD)}
+.mobile-481{height:39px;width:auto;max-width:100%;object-fit:contain;display:var(--logoL)}
 .mobile-482{display:flex;gap:8px}
 .mobile-483{flex:none;width:48px;height:48px;border-radius:50%;border:1px solid rgba(var(--ink),.16);background:rgba(var(--ink),.04);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:transform .6s cubic-bezier(.16,1,.3,1),border-color .3s,background .3s}
 .mobile-483:hover{border-color:var(--brand);transform:rotate(-30deg)}
