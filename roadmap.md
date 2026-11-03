@@ -1,4 +1,5 @@
 # Tasks
+- [x] Restyle the money-flow diagram to the supplied v2 template while preserving current text and photos; verify desktop and mobile.
 - [x] Apply client document feedback: headings, numbering, logo, marquee, photo service cards/details, and enlarged photo diagram; verify both views.
 - [x] Transfer the desktop and mobile templates and money-flow animation.
 - [x] Use uploaded logos and photo; set favicon and page metadata.
@@ -6,4 +7,4 @@
 - [x] Add the uploaded logo loading animation before revealing the existing page.
 - [x] Replace featured cards with uploaded illustrated cards in both themes and verify interactions.
 - [x] Add the uploaded building photo under the map in the contact section, in both views and themes.
-- [ ] Connect real inquiry delivery — awaiting recipient email and contact details; original templates only simulate sending.
+- [ ] Connect real inquiry delivery — not requested or connected yet; contact details are supplied, but an actual delivery service is still needed.

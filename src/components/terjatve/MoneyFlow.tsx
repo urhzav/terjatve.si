@@ -19,27 +19,6 @@ const FLOWS = [
 
 const NODE_PHOTOS = FEATURED_IDS.map(id => SERVICE_PHOTOS[id]);
 
-const ICONS = [
-  <>
-    <path d="M-22,22 V-2 L0,-20 L22,-2 V22 Z M-6,22 V8 H6 V22" className="flow-23"></path>
-    <path d="M-29,3 L0,-24 L29,3" strokeWidth="3" className="flow-23"></path>
-  </>,
-  <>
-    <path d="M-16,-24 H8 L18,-14 V24 H-16 Z M8,-24 V-14 H18 M-9,-6 H10 M-9,2 H10" className="flow-23"></path>
-    <path d="M-8,13 L-2,18 L10,8" strokeWidth="3" className="flow-23"></path>
-  </>,
-  <>
-    <circle cx="0" cy="5" r="19" className="flow-23"></circle>
-    <path d="M-6,-21 H6 M0,-21 V-14 M15,-11 L19,-15" className="flow-23"></path>
-    <path d="M0,5 L9,-5" strokeWidth="3" className="flow-23"></path>
-    <circle cx="0" cy="5" r="2.5" fill="#FFFFFF" stroke="none"></circle>
-  </>,
-  <>
-    <path d="M-28,24 V2 L-11,-9 V24 M-3,24 V-24 H25 V24 M-34,24 H34" className="flow-23"></path>
-    <path d="M5,-14 H8 M15,-14 H18 M5,-4 H8 M15,-4 H18 M5,6 H8 M15,6 H18" strokeWidth="3" className="flow-23"></path>
-  </>
-];
-
 export default class MoneyFlow extends React.Component {
   state = { wide: true, idx: 0 };
   root = React.createRef();
@@ -86,15 +65,16 @@ export default class MoneyFlow extends React.Component {
     const D = (this.props.speed ?? 4.5) * 1000;
     if (!this.reduce) {
       const seg = [[0.06, 0.44], [0.5, 0.88]];
-      r.querySelectorAll('[data-g]').forEach(p => {
-        const [a, b] = seg[+p.getAttribute('data-g')], len = p.getAttribute('stroke-dasharray').split(' ')[0];
-        this.anims.push(p.animate([{ offset: 0, strokeDashoffset: len }, { offset: a, strokeDashoffset: len, easing: 'cubic-bezier(.45,0,.25,1)' }, { offset: b, strokeDashoffset: -1000 }, { offset: 1, strokeDashoffset: -1000 }], { duration: D, iterations: Infinity }));
+      r.querySelectorAll('[data-gh], [data-gv]').forEach(el => {
+        const vertical = el.hasAttribute('data-gv');
+        const [a, b] = seg[Number(el.getAttribute(vertical ? 'data-gv' : 'data-gh'))];
+        const from = vertical ? 'translateY(-100%)' : 'translateX(-100%)';
+        const to = vertical ? 'translateY(300%)' : 'translateX(300%)';
+        this.anims.push(el.animate([{ offset: 0, transform: from }, { offset: a, transform: from, easing: 'cubic-bezier(.45,0,.25,1)' }, { offset: b, transform: to }, { offset: 1, transform: to }], { duration: D, iterations: Infinity }));
       });
-      const hits = { 0: 0.06, 1: 0.44, 2: 0.88 };
-      r.querySelectorAll('[data-n]').forEach(c => {
-        const t = hits[c.getAttribute('data-n')];
-        c.style.transformBox = 'fill-box'; c.style.transformOrigin = 'center';
-        this.anims.push(c.animate([{ offset: 0, opacity: 0, transform: 'scale(1)' }, { offset: t - 0.001, opacity: 0, transform: 'scale(1)' }, { offset: t, opacity: 1, transform: 'scale(1)' }, { offset: Math.min(0.999, t + 0.1), opacity: 0, transform: 'scale(1.3)' }, { offset: 1, opacity: 0, transform: 'scale(1.3)' }], { duration: D, iterations: Infinity }));
+      r.querySelectorAll('[data-ring]').forEach(el => {
+        const t = [0.03, 0.44, 0.88][Number(el.getAttribute('data-ring'))];
+        this.anims.push(el.animate([{ offset: 0, opacity: 0 }, { offset: t, opacity: 0 }, { offset: Math.min(.99, t + .04), opacity: 1 }, { offset: Math.min(.995, t + .1), opacity: 0 }, { offset: 1, opacity: 0 }], { duration: D, iterations: Infinity }));
       });
       const bar = r.querySelector('[data-tprog="' + this.state.idx + '"]');
       r.querySelectorAll('[data-tprog]').forEach(b => { b.style.transform = 'scaleX(0)'; });
@@ -114,40 +94,47 @@ export default class MoneyFlow extends React.Component {
           <span className="flow-5" /><span data-tprog={t.i} className="flow-6" /><span className="flow-8">{t.name}</span>
         </Button>
       ))}</div>
-      <div className="flow-9">
-        <svg viewBox="0 0 1200 440" className="flow-10" role="img" aria-label={`${v.cur.name}: terjatve.si, vaše podjetje, poslovanje`}>
-          <defs>
-            <clipPath id="company-frame"><rect x="470" y="100" width="260" height="250" rx="16" /></clipPath>
-            <clipPath id="business-frame"><rect x="900" y="100" width="260" height="250" rx="16" /></clipPath>
-            <linearGradient id="flow-photo-shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" className="photo-shade-start" /><stop offset="1" className="photo-shade-end" /></linearGradient>
-          </defs>
-          {[{x1:300,x2:470,i:0},{x1:730,x2:900,i:1}].map(edge => <g key={edge.i}>
-            <path d={`M${edge.x1},210 H${edge.x2}`} fill="none" strokeWidth="2" className="flow-11" />
-            <path d={`M${edge.x2-12},202 L${edge.x2-2},210 L${edge.x2-12},218`} fill="none" strokeWidth="2" className="flow-18" />
-            <path data-g={edge.i} d={`M${edge.x1},210 H${edge.x2}`} pathLength="1000" fill="none" stroke="var(--brand)" strokeWidth="4" strokeLinecap="round" strokeDasharray="160 1200" strokeDashoffset="160" />
-          </g>)}
-          <g data-swap="">
-            <text x="385" y="160" textAnchor="middle" fontSize="19" className="flow-13">{v.cur.e1}</text>
-            <text x="815" y="160" textAnchor="middle" fontSize="19" className="flow-13">{v.cur.e2}</text>
-          </g>
-          <rect x="40" y="100" width="260" height="250" rx="16" className="flow-16" />
-          <image href={whiteLogo.url} x="70" y="175" width="200" height="57" className="flow-19" />
-          <image href={darkLogo.url} x="70" y="175" width="200" height="57" className="flow-20" />
-          <text x="64" y="314" fontSize="23" className="flow-13">terjatve.si</text>
-          <g clipPath="url(#company-frame)">
-            <image href={companyPhoto.url} x="470" y="100" width="260" height="250" preserveAspectRatio="xMidYMid slice" />
-            <rect x="470" y="200" width="260" height="150" fill="url(#flow-photo-shade)" />
-          </g>
-          <text x="494" y="310" fontSize="23" className="flow-photo-label">Vaše podjetje</text>
-          <g clipPath="url(#business-frame)">
-            {NODE_PHOTOS.map((src,i) => <image key={src} href={src} x="900" y="100" width="260" height="250" preserveAspectRatio="xMidYMid slice" className={`flow-service-photo${i===this.state.idx ? ' is-active' : ''}`} />)}
-            <rect x="900" y="200" width="260" height="150" fill="url(#flow-photo-shade)" />
-          </g>
-          <text x="924" y="310" fontSize="23" className="flow-photo-label">Poslovanje</text>
-          <g data-swap=""><text x="1030" y="386" textAnchor="middle" fontSize="20" className="flow-15">{v.cur.n3}</text></g>
-          {[40,470,900].map((x,i) => <rect key={x} data-n={i} x={x} y="100" width="260" height="250" rx="16" fill="none" stroke="var(--brand)" strokeWidth="3" opacity="0" />)}
-        </svg>
-        <p data-swap="" className="flow-21">{v.cur.d}</p>
+      <div className="flow-9" role="group" aria-label={`${v.cur.name}: terjatve.si, vaše podjetje, poslovanje`}>
+        <div className="flow-node flow-node--logo">
+          <span data-ring="0" className="flow-node__ring" />
+          <div className="flow-node__logos">
+            <img src={whiteLogo.url} alt="terjatve.si" className="flow-19" />
+            <img src={darkLogo.url} alt="terjatve.si" className="flow-20" />
+          </div>
+          <span className="flow-node__title">terjatve.si</span>
+        </div>
+        {this.renderConnector(0, v.cur.e1, v.cur.e1s)}
+        <div className="flow-node flow-node--photo">
+          <img src={companyPhoto.url} alt="Vaše podjetje" className="flow-node__photo" />
+          <span className="flow-node__shade" />
+          <span data-ring="1" className="flow-node__ring" />
+          <div className="flow-node__copy"><span className="flow-node__title">Vaše podjetje</span></div>
+        </div>
+        {this.renderConnector(1, v.cur.e2, v.cur.e2s)}
+        <div className="flow-node flow-node--photo">
+          {NODE_PHOTOS.map((src, i) => <img key={src} src={src} alt={i === this.state.idx ? v.cur.n3 : ''} className={`flow-node__photo flow-service-photo${i === this.state.idx ? ' is-active' : ''}`} />)}
+          <span className="flow-node__shade" />
+          <span data-ring="2" className="flow-node__ring" />
+          <div className="flow-node__copy">
+            <span data-swap="" className="flow-node__badge">{v.cur.n3}</span>
+            <span className="flow-node__title">Poslovanje</span>
+          </div>
+        </div>
+      </div>
+      <p data-swap="" className="flow-21">{v.cur.d}</p>
+    </div>;
+  }
+
+  renderConnector(i, title, subtitle) {
+    return <div className="flow-connector">
+      <div className="flow-connector__track">
+        <span data-gh={i} className="flow-connector__glow flow-connector__glow--horizontal" />
+        <span data-gv={i} className="flow-connector__glow flow-connector__glow--vertical" />
+      </div>
+      <svg className="flow-connector__arrow" width="12" height="16" viewBox="0 0 12 16" fill="none" aria-hidden="true"><path d="M2 2l7 6-7 6" stroke="var(--brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+      <div data-swap="" className="flow-connector__copy">
+        <span className="flow-connector__title">{title}</span>
+        <span className="flow-connector__subtitle">{subtitle}</span>
       </div>
     </div>;
   }
