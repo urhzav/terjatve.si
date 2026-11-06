@@ -26,6 +26,9 @@ export default function FeaturedServiceCard({ service }: { service: FeaturedServ
           <span className="featured-service__arrow"><svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.6" /></svg></span>
         </span>
         <span className="featured-service__copy"><span className="featured-service__title">{service.name}</span><span className="featured-service__description">{service.tag}</span></span>
+        <svg className="featured-service__border" aria-hidden="true" focusable="false">
+          <rect pathLength="1" rx="16" width="100%" height="100%" />
+        </svg>
       </a>
     </Button>
   );

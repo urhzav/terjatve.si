@@ -816,6 +816,9 @@ option{background:var(--card2);color:var(--fg)}
 .featured-service__copy{position:absolute;inset:auto 0 0;display:flex;flex-direction:column;gap:10px;padding:28px;}
 .featured-service__title{font-size:30px;font-weight:550;letter-spacing:0;line-height:1.1;text-wrap:balance;}
 .featured-service__description{font-size:16px;line-height:1.45;color:var(--photo-copy);text-wrap:pretty;max-width:38ch;}
+.featured-service__border{position:absolute;inset:0;z-index:3;pointer-events:none;display:block;width:100%;height:100%;}
+.featured-service__border rect{x:1.5px;y:1.5px;width:calc(100% - 3px);height:calc(100% - 3px);fill:none;stroke:var(--brand);stroke-width:3;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .75s cubic-bezier(.62,.02,.34,1);}
+.featured-service:hover .featured-service__border rect,.featured-service:focus-visible .featured-service__border rect{stroke-dashoffset:0;}
 .mobile-534>.featured-service{flex:0 0 92%;scroll-snap-align:start;aspect-ratio:4/5;}
 .mobile-534 .featured-service__copy{padding:22px;}
 .mobile-534 .featured-service__title{font-size:27px;}
