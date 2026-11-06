@@ -101,7 +101,6 @@ export default class MoneyFlow extends React.Component {
             <img src={whiteLogo.url} alt="terjatve.si" className="flow-19" />
             <img src={darkLogo.url} alt="terjatve.si" className="flow-20" />
           </div>
-          <span className="flow-node__title">terjatve.si</span>
         </div>
         {this.renderConnector(0, v.cur.e1, v.cur.e1s)}
         <div className="flow-node flow-node--photo">
