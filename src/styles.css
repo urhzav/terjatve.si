@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @source "../src";
 :root{--loading-background:var(--original-0a0a0b);--loading-foreground:var(--original-f4f4f5);--loading-muted:var(--original-8a8a93);--loading-track:color-mix(in srgb,var(--original-ffffff) 12%,transparent);--loading-glow:radial-gradient(circle,color-mix(in srgb,var(--brand) 45%,transparent),transparent 62%);--loading-bar-shadow:0 0 12px var(--brand);}
+html[data-theme=light]{--loading-background:var(--original-f6f5f2);--loading-foreground:var(--original-0a0a0b);--loading-muted:var(--original-6b6b73);--loading-track:color-mix(in srgb,var(--original-000000) 14%,transparent);}
 .site-loading{position:fixed;inset:0;z-index:1000;background:var(--loading-background);color:var(--loading-foreground);display:grid;place-items:center;overflow:hidden;font-family:'Geist',system-ui,sans-serif;}
 .site-loading__glow{position:absolute;left:50%;top:50%;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border-radius:50%;background:var(--loading-glow);filter:blur(20px);opacity:0;pointer-events:none;}
 .site-loading__logo{position:relative;width:min(72vw,720px);aspect-ratio:2200/622;}

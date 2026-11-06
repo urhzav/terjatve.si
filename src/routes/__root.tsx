@@ -99,8 +99,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="sl">
+    <html lang="sl" data-theme="light">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('terjatve-theme');if(t==='dark'||t==='light')document.documentElement.dataset.theme=t;}catch(e){}",
+          }}
+        />
         <HeadContent />
       </head>
       <body>

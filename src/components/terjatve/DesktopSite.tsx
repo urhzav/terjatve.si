@@ -66,7 +66,7 @@ export default class DesktopSite extends React.Component {
   componentDidMount() {
     const root = this.root.current; if (!root) return;
     let t0 = null; try { t0 = localStorage.getItem('terjatve-theme'); } catch (e) {}
-    this.applyTheme(t0 || document.documentElement.dataset.theme || 'dark', false);
+    this.applyTheme(t0 || document.documentElement.dataset.theme || 'light', false);
     const on = (t, ev, fn, o) => { t.addEventListener(ev, fn, o); this.cleanups.push(() => t.removeEventListener(ev, fn, o)); };
     this.motion = (this.props.animations ?? true) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this.fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
