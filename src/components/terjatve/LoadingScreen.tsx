@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import eLayer from "@/assets/loading-e.png.asset.json";
-import inkLayer from "@/assets/loading-ink.png.asset.json";
+import inkLayer from "@/assets/loading-ink-black.png.asset.json";
 import dotLayer from "@/assets/loading-dot.png.asset.json";
 
 export default function LoadingScreen() {
