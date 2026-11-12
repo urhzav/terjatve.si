@@ -10,3 +10,4 @@
 - [ ] Connect real inquiry delivery — not requested or connected yet; contact details are supplied, but an actual delivery service is still needed.
 
 - [x] Add protected /admin, editable text/photo catalog, persistent overrides and verify saved changes on both views.
+- [x] Add password setup/recovery page, send setup email and verify password sign-in; recipient must open the emailed link to complete their password setup.

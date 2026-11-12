@@ -19,3 +19,4 @@
 - Keep all editable text and image defaults in the CMS catalog; desktop and mobile templates resolve the same content keys to preserve their separate layouts.
 - Persist CMS overrides in site_content with admin-only writes and public reads; keep admin membership in user_roles and assign only verified allowlisted accounts to prevent public signup escalation.
 - Keep uploaded CMS images in private Storage with scoped read policies and long-lived signed display URLs because workspace policy forbids public buckets.
+- Password setup and recovery use Cloud Auth email links and the public reset-password page; never generate or disclose administrator passwords in chat.
