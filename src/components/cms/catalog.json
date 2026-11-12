@@ -1,0 +1,1486 @@
+[
+  {
+    "key": "text.1p25jpv",
+    "kind": "text",
+    "label": "Hipotekarni krediti",
+    "group": "Denarni tok",
+    "defaultValue": "Hipotekarni krediti"
+  },
+  {
+    "key": "text.p5mqdx",
+    "kind": "text",
+    "label": "Hipotekarno financiranje",
+    "group": "Splošno",
+    "defaultValue": "Hipotekarno financiranje"
+  },
+  {
+    "key": "text.4z8r2u",
+    "kind": "text",
+    "label": "Financiranje do 5 milijonov €",
+    "group": "Storitve",
+    "defaultValue": "Financiranje do 5 milijonov €"
+  },
+  {
+    "key": "text.d39xja",
+    "kind": "text",
+    "label": "Podjetjem zagotavljamo financiranje ob ustreznem zavarovanju z nepremičnino.",
+    "group": "Storitve",
+    "defaultValue": "Podjetjem zagotavljamo financiranje ob ustreznem zavarovanju z nepremičnino."
+  },
+  {
+    "key": "text.y8m5bh",
+    "kind": "text",
+    "label": "Višino, obdobje in pogoje financiranja določimo individualno glede na želeni znesek, vredn",
+    "group": "Storitve",
+    "defaultValue": "Višino, obdobje in pogoje financiranja določimo individualno glede na želeni znesek, vrednost nepremičnine in okoliščine posameznega primera."
+  },
+  {
+    "key": "text.15od4xa",
+    "kind": "text",
+    "label": "Do 5 milijonov €",
+    "group": "Splošno",
+    "defaultValue": "Do 5 milijonov €"
+  },
+  {
+    "key": "text.192pma4",
+    "kind": "text",
+    "label": "Lastni kapital",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Lastni kapital"
+  },
+  {
+    "key": "text.p0q8tx",
+    "kind": "text",
+    "label": "Hitra obravnava",
+    "group": "Storitve",
+    "defaultValue": "Hitra obravnava"
+  },
+  {
+    "key": "text.wv4qu3",
+    "kind": "text",
+    "label": "Individualni pogoji",
+    "group": "Storitve",
+    "defaultValue": "Individualni pogoji"
+  },
+  {
+    "key": "text.7ilo71",
+    "kind": "text",
+    "label": "Več o hipotekarnem financiranju",
+    "group": "Storitve",
+    "defaultValue": "Več o hipotekarnem financiranju"
+  },
+  {
+    "key": "text.17b80nq",
+    "kind": "text",
+    "label": "Hipotekarno financiranje omogoča podjetjem pridobitev finančnih sredstev ob ustreznem zava",
+    "group": "Storitve",
+    "defaultValue": "Hipotekarno financiranje omogoča podjetjem pridobitev finančnih sredstev ob ustreznem zavarovanju z nepremičnino."
+  },
+  {
+    "key": "text.w7phue",
+    "kind": "text",
+    "label": "Omogočamo financiranje do 5 milijonov €, pri čemer se višina financiranja in pogoji določi",
+    "group": "Storitve",
+    "defaultValue": "Omogočamo financiranje do 5 milijonov €, pri čemer se višina financiranja in pogoji določijo individualno glede na vrednost nepremičnine in posamezen posel."
+  },
+  {
+    "key": "text.1rqzim4",
+    "kind": "text",
+    "label": "Ker financiranje zagotavljamo z lastnim kapitalom, lahko odločitev sprejmemo hitro. Ob pop",
+    "group": "Storitve",
+    "defaultValue": "Ker financiranje zagotavljamo z lastnim kapitalom, lahko odločitev sprejmemo hitro. Ob popolni dokumentaciji in ustreznem zavarovanju je pri določenih poslih mogoča izvedba v 2–3 dneh."
+  },
+  {
+    "key": "text.1q8lhxk",
+    "kind": "text",
+    "label": "Hitra izvedba",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Hitra izvedba"
+  },
+  {
+    "key": "text.1y4naov",
+    "kind": "text",
+    "label": "Pošljite povpraševanje",
+    "group": "Povpraševanje",
+    "defaultValue": "Pošljite povpraševanje"
+  },
+  {
+    "key": "text.6a6cy7",
+    "kind": "text",
+    "label": "Odkup terjatev",
+    "group": "Denarni tok",
+    "defaultValue": "Odkup terjatev"
+  },
+  {
+    "key": "text.1iixsrg",
+    "kind": "text",
+    "label": "Še isti dan do sredstev iz vaših terjatev.",
+    "group": "Storitve",
+    "defaultValue": "Še isti dan do sredstev iz vaših terjatev."
+  },
+  {
+    "key": "text.ehnv85",
+    "kind": "text",
+    "label": "Odkupujemo zapadle in nezapadle terjatve do pravnih oseb ter podjetjem omogočamo hitrejši ",
+    "group": "Storitve",
+    "defaultValue": "Odkupujemo zapadle in nezapadle terjatve do pravnih oseb ter podjetjem omogočamo hitrejši dostop do finančnih sredstev."
+  },
+  {
+    "key": "text.1v6d5b5",
+    "kind": "text",
+    "label": "Vsako terjatev obravnavamo individualno. Pogoji odkupa so odvisni od terjatve, dolžnika, o",
+    "group": "Storitve",
+    "defaultValue": "Vsako terjatev obravnavamo individualno. Pogoji odkupa so odvisni od terjatve, dolžnika, obdobja financiranja in drugih okoliščin posameznega posla."
+  },
+  {
+    "key": "text.1pouwm6",
+    "kind": "text",
+    "label": "Zapadle in nezapadle terjatve",
+    "group": "Storitve",
+    "defaultValue": "Zapadle in nezapadle terjatve"
+  },
+  {
+    "key": "text.19g8pl7",
+    "kind": "text",
+    "label": "Več o odkupu terjatev",
+    "group": "Storitve",
+    "defaultValue": "Več o odkupu terjatev"
+  },
+  {
+    "key": "text.8jtt0e",
+    "kind": "text",
+    "label": "Če ne želite čakati na plačilo svojega kupca, nam lahko terjatev ponudite v odkup.",
+    "group": "Storitve",
+    "defaultValue": "Če ne želite čakati na plačilo svojega kupca, nam lahko terjatev ponudite v odkup."
+  },
+  {
+    "key": "text.z9jejg",
+    "kind": "text",
+    "label": "Po prejemu osnovnih podatkov preverimo terjatev in dolžnika ter pripravimo pogoje odkupa. ",
+    "group": "Storitve",
+    "defaultValue": "Po prejemu osnovnih podatkov preverimo terjatev in dolžnika ter pripravimo pogoje odkupa. Višina financiranja in strošek se določita individualno glede na boniteto dolžnika, obdobje financiranja in druge značilnosti posameznega posla."
+  },
+  {
+    "key": "text.1tmq28o",
+    "kind": "text",
+    "label": "Po sklenitvi dogovora sredstva nakažemo vam, plačilo terjatve pa ob zapadlosti poravna dol",
+    "group": "Storitve",
+    "defaultValue": "Po sklenitvi dogovora sredstva nakažemo vam, plačilo terjatve pa ob zapadlosti poravna dolžnik."
+  },
+  {
+    "key": "text.sqee74",
+    "kind": "text",
+    "label": "Ker odkup financiramo z lastnim kapitalom, lahko po prejemu vseh potrebnih informacij post",
+    "group": "Storitve",
+    "defaultValue": "Ker odkup financiramo z lastnim kapitalom, lahko po prejemu vseh potrebnih informacij postopek izvedemo hitro."
+  },
+  {
+    "key": "text.j1n2gp",
+    "kind": "text",
+    "label": "Pošljite terjatev v pregled",
+    "group": "Storitve",
+    "defaultValue": "Pošljite terjatev v pregled"
+  },
+  {
+    "key": "text.rhinnu",
+    "kind": "text",
+    "label": "Kratkoročno financiranje",
+    "group": "Denarni tok",
+    "defaultValue": "Kratkoročno financiranje"
+  },
+  {
+    "key": "text.6tposh",
+    "kind": "text",
+    "label": "Hitro do dodatnih finančnih sredstev.",
+    "group": "Storitve",
+    "defaultValue": "Hitro do dodatnih finančnih sredstev."
+  },
+  {
+    "key": "text.j63tw6",
+    "kind": "text",
+    "label": "Kratkoročno financiranje je namenjeno podjetjem, ki želijo dodatna sredstva za krajše obdo",
+    "group": "Storitve",
+    "defaultValue": "Kratkoročno financiranje je namenjeno podjetjem, ki želijo dodatna sredstva za krajše obdobje."
+  },
+  {
+    "key": "text.1hgoib0",
+    "kind": "text",
+    "label": "S stranko se individualno dogovorimo o znesku, obdobju financiranja in načinu vračila. Fin",
+    "group": "Storitve",
+    "defaultValue": "S stranko se individualno dogovorimo o znesku, obdobju financiranja in načinu vračila. Financiranje je mogoče ob ustreznem zavarovanju z nepremičnino, premičnino večje vrednosti ali drugo dogovorjeno obliko zavarovanja."
+  },
+  {
+    "key": "text.41piwu",
+    "kind": "text",
+    "label": "Prilagodljivo obdobje",
+    "group": "Storitve",
+    "defaultValue": "Prilagodljivo obdobje"
+  },
+  {
+    "key": "text.12tu4j1",
+    "kind": "text",
+    "label": "Individualni dogovor",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Individualni dogovor"
+  },
+  {
+    "key": "text.zpkj0s",
+    "kind": "text",
+    "label": "Več o kratkoročnem financiranju",
+    "group": "Storitve",
+    "defaultValue": "Več o kratkoročnem financiranju"
+  },
+  {
+    "key": "text.c8lozj",
+    "kind": "text",
+    "label": "Pri kratkoročnem financiranju najprej določimo želeni znesek in obdobje financiranja ter n",
+    "group": "Storitve",
+    "defaultValue": "Pri kratkoročnem financiranju najprej določimo želeni znesek in obdobje financiranja ter način vračila."
+  },
+  {
+    "key": "text.gt7rlu",
+    "kind": "text",
+    "label": "Glede na posamezen primer se dogovorimo tudi o ustrezni obliki zavarovanja. To je lahko ne",
+    "group": "Storitve",
+    "defaultValue": "Glede na posamezen primer se dogovorimo tudi o ustrezni obliki zavarovanja. To je lahko nepremičnina, vozilo, delovni stroj ali druga premičnina večje vrednosti, lahko pa se glede na posel dogovorimo tudi za drugo obliko zavarovanja."
+  },
+  {
+    "key": "text.1x60jmk",
+    "kind": "text",
+    "label": "Ker sredstva zagotavljamo iz lastnega kapitala, lahko po prejemu potrebnih informacij in d",
+    "group": "Storitve",
+    "defaultValue": "Ker sredstva zagotavljamo iz lastnega kapitala, lahko po prejemu potrebnih informacij in dokumentacije postopek izvedemo hitro."
+  },
+  {
+    "key": "text.cw3ggl",
+    "kind": "text",
+    "label": "Projektno financiranje",
+    "group": "Denarni tok",
+    "defaultValue": "Projektno financiranje"
+  },
+  {
+    "key": "text.14576y2",
+    "kind": "text",
+    "label": "Financiranje za izvedbo vašega projekta.",
+    "group": "Storitve",
+    "defaultValue": "Financiranje za izvedbo vašega projekta."
+  },
+  {
+    "key": "text.rzs8tr",
+    "kind": "text",
+    "label": "Financiramo poslovne in investicijske projekte. Vsak projekt obravnavamo individualno ter ",
+    "group": "Storitve",
+    "defaultValue": "Financiramo poslovne in investicijske projekte. Vsak projekt obravnavamo individualno ter financiranje oblikujemo glede na višino in namen investicije, obdobje financiranja ter možnosti ustreznega zavarovanja."
+  },
+  {
+    "key": "text.z6l2dg",
+    "kind": "text",
+    "label": "Ker financiramo z lastnim kapitalom, lahko odločitve sprejemamo hitro in se prilagodimo zn",
+    "group": "Storitve",
+    "defaultValue": "Ker financiramo z lastnim kapitalom, lahko odločitve sprejemamo hitro in se prilagodimo značilnostim posameznega projekta."
+  },
+  {
+    "key": "text.u9653l",
+    "kind": "text",
+    "label": "Prilagodljivo financiranje",
+    "group": "Storitve",
+    "defaultValue": "Prilagodljivo financiranje"
+  },
+  {
+    "key": "text.xeai85",
+    "kind": "text",
+    "label": "Več o projektnem financiranju",
+    "group": "Storitve",
+    "defaultValue": "Več o projektnem financiranju"
+  },
+  {
+    "key": "text.m8a125",
+    "kind": "text",
+    "label": "Projektno financiranje je namenjeno podjetjem za izvedbo poslovnih in investicijskih proje",
+    "group": "Storitve",
+    "defaultValue": "Projektno financiranje je namenjeno podjetjem za izvedbo poslovnih in investicijskih projektov."
+  },
+  {
+    "key": "text.11sl0hi",
+    "kind": "text",
+    "label": "Po prejemu osnovnih informacij pregledamo projekt, višino želenega financiranja, predviden",
+    "group": "Storitve",
+    "defaultValue": "Po prejemu osnovnih informacij pregledamo projekt, višino želenega financiranja, predvideno obdobje financiranja in možnosti zavarovanja."
+  },
+  {
+    "key": "text.1wtoucm",
+    "kind": "text",
+    "label": "Na podlagi konkretnega projekta pripravimo pogoje financiranja in se s stranko dogovorimo ",
+    "group": "Storitve",
+    "defaultValue": "Na podlagi konkretnega projekta pripravimo pogoje financiranja in se s stranko dogovorimo o nadaljnji izvedbi."
+  },
+  {
+    "key": "text.1o8p6an",
+    "kind": "text",
+    "label": "Dobaviteljski faktoring",
+    "group": "Splošno",
+    "defaultValue": "Dobaviteljski faktoring"
+  },
+  {
+    "key": "text.1t0i7mg",
+    "kind": "text",
+    "label": "Mi poravnamo dobavitelja. Vi pridobite čas za plačilo.",
+    "group": "Storitve",
+    "defaultValue": "Mi poravnamo dobavitelja. Vi pridobite čas za plačilo."
+  },
+  {
+    "key": "text.txx6mm",
+    "kind": "text",
+    "label": "Mi vam poravnamo vašo obveznost do dobavitelja, vi pa obveznost do nas poravnate v dogovor",
+    "group": "Storitve",
+    "defaultValue": "Mi vam poravnamo vašo obveznost do dobavitelja, vi pa obveznost do nas poravnate v dogovorjenem roku."
+  },
+  {
+    "key": "text.16oit0r",
+    "kind": "text",
+    "label": "Obdobje financiranja je lahko od 1 do 3 mesecev. Višino financiranja, rok plačila in ustre",
+    "group": "Storitve",
+    "defaultValue": "Obdobje financiranja je lahko od 1 do 3 mesecev. Višino financiranja, rok plačila in ustrezno zavarovanje določimo individualno glede na posamezen posel."
+  },
+  {
+    "key": "text.1cymkch",
+    "kind": "text",
+    "label": "1–6 mesecev",
+    "group": "Storitve",
+    "defaultValue": "1–6 mesecev"
+  },
+  {
+    "key": "text.sognga",
+    "kind": "text",
+    "label": "Več o dobaviteljskem faktoringu",
+    "group": "Storitve",
+    "defaultValue": "Več o dobaviteljskem faktoringu"
+  },
+  {
+    "key": "text.1f5jau4",
+    "kind": "text",
+    "label": "Dobaviteljski faktoring podjetju omogoča, da je njegova obveznost do dobavitelja poravnana",
+    "group": "Storitve",
+    "defaultValue": "Dobaviteljski faktoring podjetju omogoča, da je njegova obveznost do dobavitelja poravnana takoj, podjetje pa pridobi dodaten čas za plačilo."
+  },
+  {
+    "key": "text.1gz853y",
+    "kind": "text",
+    "label": "Postopek je preprost: po dogovoru poravnamo obveznost vašemu dobavitelju, vi pa sredstva s",
+    "group": "Storitve",
+    "defaultValue": "Postopek je preprost: po dogovoru poravnamo obveznost vašemu dobavitelju, vi pa sredstva skupaj z dogovorjenim stroškom financiranja poravnate nam v dogovorjenem roku."
+  },
+  {
+    "key": "text.143q26",
+    "kind": "text",
+    "label": "Obdobje financiranja je lahko od 1 do 3 mesece, pogoje pa določimo individualno glede na p",
+    "group": "Storitve",
+    "defaultValue": "Obdobje financiranja je lahko od 1 do 3 mesece, pogoje pa določimo individualno glede na posamezen primer."
+  },
+  {
+    "key": "text.qtw1hg",
+    "kind": "text",
+    "label": "Tako dobavitelj prejme plačilo, vaše podjetje pa ohrani sredstva za tekoče poslovanje.",
+    "group": "Storitve",
+    "defaultValue": "Tako dobavitelj prejme plačilo, vaše podjetje pa ohrani sredstva za tekoče poslovanje."
+  },
+  {
+    "key": "text.kxi40h",
+    "kind": "text",
+    "label": "Predstavite nam svoj primer",
+    "group": "Sodelovanje",
+    "defaultValue": "Predstavite nam svoj primer"
+  },
+  {
+    "key": "text.1a3o4lv",
+    "kind": "text",
+    "label": "Pošljete nam osnovne informacije o želenem financiranju, projektu, terjatvi ali obveznosti",
+    "group": "Sodelovanje",
+    "defaultValue": "Pošljete nam osnovne informacije o želenem financiranju, projektu, terjatvi ali obveznosti."
+  },
+  {
+    "key": "text.lrkspr",
+    "kind": "text",
+    "label": "Preverimo možnosti financiranja",
+    "group": "Sodelovanje",
+    "defaultValue": "Preverimo možnosti financiranja"
+  },
+  {
+    "key": "text.13qu2c",
+    "kind": "text",
+    "label": "Pregledamo znesek, obdobje financiranja, dokumentacijo in možnosti ustreznega zavarovanja.",
+    "group": "Sodelovanje",
+    "defaultValue": "Pregledamo znesek, obdobje financiranja, dokumentacijo in možnosti ustreznega zavarovanja."
+  },
+  {
+    "key": "text.1sly1mi",
+    "kind": "text",
+    "label": "Dogovorimo pogoje",
+    "group": "Sodelovanje",
+    "defaultValue": "Dogovorimo pogoje"
+  },
+  {
+    "key": "text.adize4",
+    "kind": "text",
+    "label": "Vsak primer obravnavamo individualno in vam predstavimo pogoje financiranja.",
+    "group": "Sodelovanje",
+    "defaultValue": "Vsak primer obravnavamo individualno in vam predstavimo pogoje financiranja."
+  },
+  {
+    "key": "text.thodee",
+    "kind": "text",
+    "label": "Izvedemo financiranje",
+    "group": "Sodelovanje",
+    "defaultValue": "Izvedemo financiranje"
+  },
+  {
+    "key": "text.ffbs94",
+    "kind": "text",
+    "label": "Po dogovoru in prejemu potrebne dokumentacije financiranje izvedemo v najkrajšem možnem ča",
+    "group": "Sodelovanje",
+    "defaultValue": "Po dogovoru in prejemu potrebne dokumentacije financiranje izvedemo v najkrajšem možnem času – pri določenih poslih tudi v 2–3 dneh."
+  },
+  {
+    "key": "text.1c5tlyu",
+    "kind": "text",
+    "label": "Financiranje zagotavljamo z lastnimi sredstvi, kar nam omogoča hitro odločanje in večjo pr",
+    "group": "Prednosti",
+    "defaultValue": "Financiranje zagotavljamo z lastnimi sredstvi, kar nam omogoča hitro odločanje in večjo prilagodljivost."
+  },
+  {
+    "key": "text.4jdn71",
+    "kind": "text",
+    "label": "Omogočamo tudi financiranje večjih poslovnih in investicijskih projektov.",
+    "group": "Prednosti",
+    "defaultValue": "Omogočamo tudi financiranje večjih poslovnih in investicijskih projektov."
+  },
+  {
+    "key": "text.1kmodiu",
+    "kind": "text",
+    "label": "Povpraševanja obravnavamo hitro. Pri določenih poslih je ob popolni dokumentaciji mogoča i",
+    "group": "Prednosti",
+    "defaultValue": "Povpraševanja obravnavamo hitro. Pri določenih poslih je ob popolni dokumentaciji mogoča izvedba v 2–3 dneh."
+  },
+  {
+    "key": "text.1or0vvy",
+    "kind": "text",
+    "label": "Vsak primer je drugačen, zato višino, obdobje, način vračila in pogoje financiranja določi",
+    "group": "Prednosti",
+    "defaultValue": "Vsak primer je drugačen, zato višino, obdobje, način vračila in pogoje financiranja določimo individualno."
+  },
+  {
+    "key": "text.2qoapd",
+    "kind": "text",
+    "label": "Več kot 20 let izkušenj",
+    "group": "Prednosti",
+    "defaultValue": "Več kot 20 let izkušenj"
+  },
+  {
+    "key": "text.1ubh3t1",
+    "kind": "text",
+    "label": "Dolgoletne izkušnje na področju financiranja podjetij nam omogočajo hitro presojo različni",
+    "group": "Prednosti",
+    "defaultValue": "Dolgoletne izkušnje na področju financiranja podjetij nam omogočajo hitro presojo različnih poslovnih situacij."
+  },
+  {
+    "key": "text.1pwvcwp",
+    "kind": "text",
+    "label": "Izvedba v 2–3 dneh",
+    "group": "Splošno",
+    "defaultValue": "Izvedba v 2–3 dneh"
+  },
+  {
+    "key": "text.edyrrt",
+    "kind": "text",
+    "label": "terjatve.si — na vrh",
+    "group": "Splošno",
+    "defaultValue": "terjatve.si — na vrh"
+  },
+  {
+    "key": "text.17tnfo8",
+    "kind": "text",
+    "label": "terjatve.si",
+    "group": "Splošno",
+    "defaultValue": "terjatve.si"
+  },
+  {
+    "key": "text.kzcm63",
+    "kind": "text",
+    "label": "Storitve",
+    "group": "Storitve",
+    "defaultValue": "Storitve"
+  },
+  {
+    "key": "text.1yto3dj",
+    "kind": "text",
+    "label": "Sodelovanje",
+    "group": "Kako poteka sodelovanje",
+    "defaultValue": "Sodelovanje"
+  },
+  {
+    "key": "text.1ft6yrg",
+    "kind": "text",
+    "label": "O nas",
+    "group": "O nas",
+    "defaultValue": "O nas"
+  },
+  {
+    "key": "text.ikhj77",
+    "kind": "text",
+    "label": "Kontakt",
+    "group": "Kontakt",
+    "defaultValue": "Kontakt"
+  },
+  {
+    "key": "text.nkal05",
+    "kind": "text",
+    "label": "Preklopi svetli / temni način",
+    "group": "Splošno",
+    "defaultValue": "Preklopi svetli / temni način"
+  },
+  {
+    "key": "text.4rc58z",
+    "kind": "text",
+    "label": "Svetli / temni način",
+    "group": "Splošno",
+    "defaultValue": "Svetli / temni način"
+  },
+  {
+    "key": "text.12tihsf",
+    "kind": "text",
+    "label": "Povpraševanje",
+    "group": "Splošno",
+    "defaultValue": "\n      Povpraševanje\n      "
+  },
+  {
+    "key": "text.14dcb0n",
+    "kind": "text",
+    "label": "Financiranje za podjetja · Lastni kapital",
+    "group": "Naslovnica",
+    "defaultValue": "\n        Financiranje za podjetja · Lastni kapital\n      "
+  },
+  {
+    "key": "text.1xu6k1n",
+    "kind": "text",
+    "label": "Vaš",
+    "group": "Naslovnica",
+    "defaultValue": "Vaš"
+  },
+  {
+    "key": "text.1rg21ue",
+    "kind": "text",
+    "label": "projekt",
+    "group": "Naslovnica",
+    "defaultValue": "projekt"
+  },
+  {
+    "key": "text.52629e",
+    "kind": "text",
+    "label": "Naše",
+    "group": "Naslovnica",
+    "defaultValue": "Naše"
+  },
+  {
+    "key": "text.adhurj",
+    "kind": "text",
+    "label": "financiranje",
+    "group": "Naslovnica",
+    "defaultValue": "financiranje"
+  },
+  {
+    "key": "text.1pzx9kq",
+    "kind": "text",
+    "label": "Finančne rešitve, prilagojene vašim poslovnim ciljem.",
+    "group": "Naslovnica",
+    "defaultValue": "Finančne rešitve, prilagojene vašim poslovnim ciljem."
+  },
+  {
+    "key": "text.1xvod04",
+    "kind": "text",
+    "label": "Z lastnim kapitalom zagotavljamo projektne in druge oblike financiranja za podjetja ter om",
+    "group": "Naslovnica",
+    "defaultValue": "Z lastnim kapitalom zagotavljamo projektne in druge oblike financiranja za podjetja ter omogočamo takojšnje izplačilo finančnih sredstev."
+  },
+  {
+    "key": "text.1pngtr1",
+    "kind": "text",
+    "label": "Od prvega pogovora do finančne rešitve – osebno, hitro in prilagodljivo.",
+    "group": "Naslovnica",
+    "defaultValue": "Od prvega pogovora do finančne rešitve – osebno, hitro in prilagodljivo."
+  },
+  {
+    "key": "text.m6lsuf",
+    "kind": "text",
+    "label": "Pošljite povpraševanje",
+    "group": "Naslovnica",
+    "defaultValue": "\n              Pošljite povpraševanje\n              "
+  },
+  {
+    "key": "text.5lrj5g",
+    "kind": "text",
+    "label": "Naše storitve",
+    "group": "Storitve",
+    "defaultValue": "Naše storitve"
+  },
+  {
+    "key": "text.1uo4smt",
+    "kind": "text",
+    "label": "Izpostavljene storitve",
+    "group": "Naslovnica",
+    "defaultValue": "Izpostavljene storitve"
+  },
+  {
+    "key": "text.ohltfj",
+    "kind": "text",
+    "label": "Financiranje za podjetja",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Financiranje za podjetja"
+  },
+  {
+    "key": "text.1lpe85q",
+    "kind": "text",
+    "label": "Podjetjem zagotavljamo različne oblike financiranja z lastnim kapitalom. To nam omogoča hi",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Podjetjem zagotavljamo različne oblike financiranja z lastnim kapitalom. To nam omogoča hitro odločanje, prilagodljivost in individualno obravnavo vsakega posla."
+  },
+  {
+    "key": "text.1vdubif",
+    "kind": "text",
+    "label": "Pošljite povpraševanje",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "\n          Pošljite povpraševanje\n          "
+  },
+  {
+    "key": "text.r80q38",
+    "kind": "text",
+    "label": "do",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "do"
+  },
+  {
+    "key": "text.gy7a9s",
+    "kind": "text",
+    "label": "mio €",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "mio €"
+  },
+  {
+    "key": "text.1oaklcj",
+    "kind": "text",
+    "label": "2–3",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "2–3"
+  },
+  {
+    "key": "text.1mxs1fu",
+    "kind": "text",
+    "label": "dni",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "dni"
+  },
+  {
+    "key": "text.g1dl5f",
+    "kind": "text",
+    "label": "Možnost izvedbe v 2–3 dneh",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Možnost izvedbe v 2–3 dneh"
+  },
+  {
+    "key": "text.13dvipr",
+    "kind": "text",
+    "label": "20",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "20"
+  },
+  {
+    "key": "text.mb9u62",
+    "kind": "text",
+    "label": "let",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "let"
+  },
+  {
+    "key": "text.o65jh",
+    "kind": "text",
+    "label": "Izberite storitev za podrobnosti",
+    "group": "Storitve",
+    "defaultValue": "Izberite storitev za podrobnosti"
+  },
+  {
+    "key": "text.1vjg7rz",
+    "kind": "text",
+    "label": "Kako poteka sodelovanje",
+    "group": "Kako poteka sodelovanje",
+    "defaultValue": "Kako poteka sodelovanje"
+  },
+  {
+    "key": "text.1b2umrd",
+    "kind": "text",
+    "label": "Od povpraševanja do financiranja v nekaj korakih",
+    "group": "Kako poteka sodelovanje",
+    "defaultValue": "Od povpraševanja do financiranja v nekaj korakih"
+  },
+  {
+    "key": "text.v0pwe9",
+    "kind": "text",
+    "label": "Prednosti",
+    "group": "Zakaj izbrati nas",
+    "defaultValue": "Prednosti"
+  },
+  {
+    "key": "text.120bzpx",
+    "kind": "text",
+    "label": "Zakaj izbrati nas",
+    "group": "Zakaj izbrati nas",
+    "defaultValue": "Zakaj izbrati nas"
+  },
+  {
+    "key": "text.1jnq5xu",
+    "kind": "text",
+    "label": "Sklenitev dogovora o financiranju",
+    "group": "Fotografija",
+    "defaultValue": "Sklenitev dogovora o financiranju"
+  },
+  {
+    "key": "text.cyybc0",
+    "kind": "text",
+    "label": "Osebno, hitro in prilagodljivo",
+    "group": "Fotografija",
+    "defaultValue": "Osebno, hitro in prilagodljivo"
+  },
+  {
+    "key": "text.18ppef6",
+    "kind": "text",
+    "label": "Več kot 20 let izkušenj na področju financiranja",
+    "group": "O nas",
+    "defaultValue": "Več kot 20 let izkušenj na področju financiranja"
+  },
+  {
+    "key": "text.16mvslt",
+    "kind": "text",
+    "label": "Naša skupina podjetij se ponaša z več kot 20-letnimi izkušnjami na področju financiranja p",
+    "group": "O nas",
+    "defaultValue": "Naša skupina podjetij se ponaša z več kot 20-letnimi izkušnjami na področju financiranja podjetij. Financiranje zagotavljamo z lastnim kapitalom, zato lahko odločitve sprejemamo hitro in vsak primer obravnavamo individualno"
+  },
+  {
+    "key": "text.vogr8z",
+    "kind": "text",
+    "label": "Naš cilj",
+    "group": "O nas",
+    "defaultValue": "Naš cilj"
+  },
+  {
+    "key": "text.adzx7",
+    "kind": "text",
+    "label": "Naš cilj je preprost: razumeti konkretno situacijo stranke, preveriti možnosti financiranj",
+    "group": "O nas",
+    "defaultValue": "Naš cilj je preprost: razumeti konkretno situacijo stranke, preveriti možnosti financiranja ter poiskati rešitev, ki omogoča hitro in učinkovito izvedbo posla."
+  },
+  {
+    "key": "text.ibvzod",
+    "kind": "text",
+    "label": "Povejte nam, kaj želite financirati",
+    "group": "Povpraševanje",
+    "defaultValue": "Povejte nam, kaj želite financirati"
+  },
+  {
+    "key": "text.17m8hvj",
+    "kind": "text",
+    "label": "Predstavite nam svoj projekt, terjatev, obveznost ali želeni znesek financiranja. Na podla",
+    "group": "Povpraševanje",
+    "defaultValue": "Predstavite nam svoj projekt, terjatev, obveznost ali želeni znesek financiranja. Na podlagi osnovnih informacij bomo preverili možnosti in vas kontaktirali glede nadaljnjih korakov"
+  },
+  {
+    "key": "text.10omwbk",
+    "kind": "text",
+    "label": "Skupaj poiščimo ustrezno finančno rešitev",
+    "group": "Povpraševanje",
+    "defaultValue": "Skupaj poiščimo ustrezno finančno rešitev"
+  },
+  {
+    "key": "text.1xs7kug",
+    "kind": "text",
+    "label": "Potrebujete financiranje ali želite preveriti možnosti sodelovanja? Predstavite nam svoj p",
+    "group": "Povpraševanje",
+    "defaultValue": "Potrebujete financiranje ali želite preveriti možnosti sodelovanja? Predstavite nam svoj projekt oziroma želeno obliko financiranja in osnovne podatke, mi pa bomo vaše povpraševanje pregledali ter vas kontaktirali."
+  },
+  {
+    "key": "text.1fl2li8",
+    "kind": "text",
+    "label": "Ime in priimek / Podjetje *",
+    "group": "Povpraševanje",
+    "defaultValue": "Ime in priimek / Podjetje *"
+  },
+  {
+    "key": "text.1gg8v0x",
+    "kind": "text",
+    "label": "Janez Novak, Podjetje d.o.o.",
+    "group": "Povpraševanje",
+    "defaultValue": "Janez Novak, Podjetje d.o.o."
+  },
+  {
+    "key": "text.1l1xqg0",
+    "kind": "text",
+    "label": "E-pošta *",
+    "group": "Povpraševanje",
+    "defaultValue": "E-pošta *"
+  },
+  {
+    "key": "text.e4dtjl",
+    "kind": "text",
+    "label": "ime@podjetje.si",
+    "group": "Povpraševanje",
+    "defaultValue": "ime@podjetje.si"
+  },
+  {
+    "key": "text.183zvks",
+    "kind": "text",
+    "label": "Telefon",
+    "group": "Povpraševanje",
+    "defaultValue": "Telefon"
+  },
+  {
+    "key": "text.ghmpq5",
+    "kind": "text",
+    "label": "+386",
+    "group": "Povpraševanje",
+    "defaultValue": "+386"
+  },
+  {
+    "key": "text.oc45cj",
+    "kind": "text",
+    "label": "Vrsta financiranja *",
+    "group": "Povpraševanje",
+    "defaultValue": "Vrsta financiranja *"
+  },
+  {
+    "key": "text.14sxirx",
+    "kind": "text",
+    "label": "Izberite vrsto financiranja",
+    "group": "Povpraševanje",
+    "defaultValue": "Izberite vrsto financiranja"
+  },
+  {
+    "key": "text.tajgio",
+    "kind": "text",
+    "label": "Drugo",
+    "group": "Splošno",
+    "defaultValue": "Drugo"
+  },
+  {
+    "key": "text.177lq4n",
+    "kind": "text",
+    "label": "Okvirni znesek financiranja",
+    "group": "Povpraševanje",
+    "defaultValue": "Okvirni znesek financiranja"
+  },
+  {
+    "key": "text.j6z8i6",
+    "kind": "text",
+    "label": "npr. 250.000",
+    "group": "Povpraševanje",
+    "defaultValue": "npr. 250.000"
+  },
+  {
+    "key": "text.110ovml",
+    "kind": "text",
+    "label": "Sporočilo / kratek opis povpraševanja",
+    "group": "Povpraševanje",
+    "defaultValue": "Sporočilo / kratek opis povpraševanja"
+  },
+  {
+    "key": "text.1i31qj5",
+    "kind": "text",
+    "label": "Na kratko opišite projekt, terjatev ali obveznost …",
+    "group": "Povpraševanje",
+    "defaultValue": "Na kratko opišite projekt, terjatev ali obveznost …"
+  },
+  {
+    "key": "text.vmttga",
+    "kind": "text",
+    "label": "Priložite dokumentacijo",
+    "group": "Povpraševanje",
+    "defaultValue": "Priložite dokumentacijo"
+  },
+  {
+    "key": "text.9zawpn",
+    "kind": "text",
+    "label": "Povlecite datoteke sem ali kliknite za izbiro",
+    "group": "Povpraševanje",
+    "defaultValue": "Povlecite datoteke sem ali kliknite za izbiro"
+  },
+  {
+    "key": "text.ttktvw",
+    "kind": "text",
+    "label": "* Obvezna polja",
+    "group": "Povpraševanje",
+    "defaultValue": "* Obvezna polja"
+  },
+  {
+    "key": "text.csoafc",
+    "kind": "text",
+    "label": "Pošiljanje …",
+    "group": "Povpraševanje",
+    "defaultValue": "Pošiljanje …"
+  },
+  {
+    "key": "text.11aik1p",
+    "kind": "text",
+    "label": "Hvala, povpraševanje smo prejeli",
+    "group": "Povpraševanje",
+    "defaultValue": "Hvala, povpraševanje smo prejeli"
+  },
+  {
+    "key": "text.102qgxv",
+    "kind": "text",
+    "label": "Vaše povpraševanje bomo pregledali in vas kontaktirali glede nadaljnjih korakov.",
+    "group": "Povpraševanje",
+    "defaultValue": "Vaše povpraševanje bomo pregledali in vas kontaktirali glede nadaljnjih korakov."
+  },
+  {
+    "key": "text.ak30o1",
+    "kind": "text",
+    "label": "Pošljite novo povpraševanje",
+    "group": "Povpraševanje",
+    "defaultValue": "Pošljite novo povpraševanje"
+  },
+  {
+    "key": "text.1hixy3k",
+    "kind": "text",
+    "label": "Imate vprašanje? Stopite v stik z nami",
+    "group": "Kontakt",
+    "defaultValue": "Imate vprašanje? Stopite v stik z nami"
+  },
+  {
+    "key": "text.1m90pyf",
+    "kind": "text",
+    "label": "Z veseljem bomo preverili možnosti financiranja glede na vaše povpraševanje",
+    "group": "Kontakt",
+    "defaultValue": "Z veseljem bomo preverili možnosti financiranja glede na vaše povpraševanje"
+  },
+  {
+    "key": "text.plih3u",
+    "kind": "text",
+    "label": "Podjetje",
+    "group": "Kontakt",
+    "defaultValue": "Podjetje"
+  },
+  {
+    "key": "text.18oemnv",
+    "kind": "text",
+    "label": "B IN B FIN d.o.o.",
+    "group": "Kontakt",
+    "defaultValue": "B IN B FIN d.o.o."
+  },
+  {
+    "key": "text.orkjlu",
+    "kind": "text",
+    "label": "Naslov",
+    "group": "Kontakt",
+    "defaultValue": "Naslov"
+  },
+  {
+    "key": "text.1up552f",
+    "kind": "text",
+    "label": "Litijska cesta 43, 1000 Ljubljana",
+    "group": "Noga",
+    "defaultValue": "Litijska cesta 43, 1000 Ljubljana"
+  },
+  {
+    "key": "text.1iz3zxo",
+    "kind": "text",
+    "label": "01/547 36 22",
+    "group": "Kontakt",
+    "defaultValue": "01/547 36 22"
+  },
+  {
+    "key": "text.vjaxgu",
+    "kind": "text",
+    "label": "E-pošta",
+    "group": "Kontakt",
+    "defaultValue": "E-pošta"
+  },
+  {
+    "key": "text.82iw8q",
+    "kind": "text",
+    "label": "info@terjatve.si",
+    "group": "Kontakt",
+    "defaultValue": "info@terjatve.si"
+  },
+  {
+    "key": "text.nrj4u1",
+    "kind": "text",
+    "label": "Delovni čas",
+    "group": "Kontakt",
+    "defaultValue": "Delovni čas"
+  },
+  {
+    "key": "text.1dyml7e",
+    "kind": "text",
+    "label": "Ponedeljek–petek: 7.30–15.30",
+    "group": "Kontakt",
+    "defaultValue": "Ponedeljek–petek: 7.30–15.30"
+  },
+  {
+    "key": "text.aobnme",
+    "kind": "text",
+    "label": "Lokacija — Litijska cesta 43, Ljubljana",
+    "group": "Kontakt",
+    "defaultValue": "Lokacija — Litijska cesta 43, Ljubljana"
+  },
+  {
+    "key": "text.lkpg4o",
+    "kind": "text",
+    "label": "Prikaz lokacije",
+    "group": "Kontakt",
+    "defaultValue": "Prikaz lokacije"
+  },
+  {
+    "key": "text.1qczl7l",
+    "kind": "text",
+    "label": "Od prvega pogovora do finančne rešitve – osebno, hitro in prilagodljivo",
+    "group": "Noga",
+    "defaultValue": "Od prvega pogovora do finančne rešitve – osebno, hitro in prilagodljivo"
+  },
+  {
+    "key": "text.1ln7m4n",
+    "kind": "text",
+    "label": "Povpraševanje",
+    "group": "Noga",
+    "defaultValue": "Povpraševanje"
+  },
+  {
+    "key": "text.103meaj",
+    "kind": "text",
+    "label": "© 2026 B IN B FIN d.o.o. · Litijska cesta 43, 1000 Ljubljana",
+    "group": "Noga",
+    "defaultValue": "© 2026 B IN B FIN d.o.o. · Litijska cesta 43, 1000 Ljubljana"
+  },
+  {
+    "key": "text.7ttjko",
+    "kind": "text",
+    "label": "Na vrh",
+    "group": "Noga",
+    "defaultValue": "Na vrh"
+  },
+  {
+    "key": "text.xque6a",
+    "kind": "text",
+    "label": "20+ let izkušenj",
+    "group": "Splošno",
+    "defaultValue": "20+ let izkušenj"
+  },
+  {
+    "key": "text.1rh5cg6",
+    "kind": "text",
+    "label": "Meni",
+    "group": "Splošno",
+    "defaultValue": "Meni"
+  },
+  {
+    "key": "text.1ysxk8f",
+    "kind": "text",
+    "label": "Financiranje za podjetja",
+    "group": "Naslovnica",
+    "defaultValue": "\n      Financiranje za podjetja\n    "
+  },
+  {
+    "key": "text.inp4n6",
+    "kind": "text",
+    "label": "Vaš projekt",
+    "group": "Naslovnica",
+    "defaultValue": "Vaš projekt"
+  },
+  {
+    "key": "text.v4gtsn",
+    "kind": "text",
+    "label": "Pošljite povpraševanje",
+    "group": "Naslovnica",
+    "defaultValue": "\n        Pošljite povpraševanje\n        "
+  },
+  {
+    "key": "text.1lpcx4v",
+    "kind": "text",
+    "label": "Izpostavljeno",
+    "group": "Izpostavljene storitve",
+    "defaultValue": "Izpostavljeno"
+  },
+  {
+    "key": "text.1wxijdg",
+    "kind": "text",
+    "label": "Podjetjem zagotavljamo različne oblike financiranja z lastnim kapitalom. To nam omogoča hi",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Podjetjem zagotavljamo različne oblike financiranja z lastnim kapitalom. To nam omogoča hitro odločanje, prilagodljivost in individualno obravnavo vsakega posla"
+  },
+  {
+    "key": "text.1r5fxgf",
+    "kind": "text",
+    "label": "Financiranje",
+    "group": "Denarni tok",
+    "defaultValue": "Financiranje"
+  },
+  {
+    "key": "text.18cxzja",
+    "kind": "text",
+    "label": "Možnost izvedbe",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Možnost izvedbe"
+  },
+  {
+    "key": "text.uur5vw",
+    "kind": "text",
+    "label": "Izkušenj",
+    "group": "Financiranje za podjetja",
+    "defaultValue": "Izkušenj"
+  },
+  {
+    "key": "text.mwnmo9",
+    "kind": "text",
+    "label": "Sporočilo / kratek opis",
+    "group": "Povpraševanje",
+    "defaultValue": "Sporočilo / kratek opis"
+  },
+  {
+    "key": "text.hho0ks",
+    "kind": "text",
+    "label": "Tapnite za izbiro datotek",
+    "group": "Povpraševanje",
+    "defaultValue": "Tapnite za izbiro datotek"
+  },
+  {
+    "key": "text.uf2z9r",
+    "kind": "text",
+    "label": "Pokličite",
+    "group": "Kontakt",
+    "defaultValue": "Pokličite"
+  },
+  {
+    "key": "text.9gaxi3",
+    "kind": "text",
+    "label": "Pišite nam",
+    "group": "Kontakt",
+    "defaultValue": "Pišite nam"
+  },
+  {
+    "key": "text.63rclg",
+    "kind": "text",
+    "label": "Litijska cesta 43, Ljubljana",
+    "group": "Kontakt",
+    "defaultValue": "Litijska cesta 43, Ljubljana"
+  },
+  {
+    "key": "text.igavi2",
+    "kind": "text",
+    "label": "© 2026 B IN B FIN d.o.o.",
+    "group": "Noga",
+    "defaultValue": "© 2026 B IN B FIN d.o.o."
+  },
+  {
+    "key": "text.lxpmtz",
+    "kind": "text",
+    "label": "Pošljite povpraševanje",
+    "group": "Splošno",
+    "defaultValue": "\n    Pošljite povpraševanje\n    "
+  },
+  {
+    "key": "text.kl71sc",
+    "kind": "text",
+    "label": "DO 5 MIO €",
+    "group": "Denarni tok",
+    "defaultValue": "DO 5 MIO €"
+  },
+  {
+    "key": "text.h04rjo",
+    "kind": "text",
+    "label": "Naložba",
+    "group": "Denarni tok",
+    "defaultValue": "Naložba"
+  },
+  {
+    "key": "text.1xs6e3k",
+    "kind": "text",
+    "label": "ZAVAROVANO Z NEPREMIČNINO",
+    "group": "Denarni tok",
+    "defaultValue": "ZAVAROVANO Z NEPREMIČNINO"
+  },
+  {
+    "key": "text.blju12",
+    "kind": "text",
+    "label": "Nepremičnina",
+    "group": "Denarni tok",
+    "defaultValue": "Nepremičnina"
+  },
+  {
+    "key": "text.1ft5olq",
+    "kind": "text",
+    "label": "ZAVAROVANJE",
+    "group": "Denarni tok",
+    "defaultValue": "ZAVAROVANJE"
+  },
+  {
+    "key": "text.1r3qr4f",
+    "kind": "text",
+    "label": "Podjetjem zagotavljamo financiranje do 5 milijonov € ob ustreznem zavarovanju z nepremični",
+    "group": "Denarni tok",
+    "defaultValue": "Podjetjem zagotavljamo financiranje do 5 milijonov € ob ustreznem zavarovanju z nepremičnino."
+  },
+  {
+    "key": "text.z1l6y9",
+    "kind": "text",
+    "label": "Takojšnje izplačilo",
+    "group": "Denarni tok",
+    "defaultValue": "Takojšnje izplačilo"
+  },
+  {
+    "key": "text.ou7zom",
+    "kind": "text",
+    "label": "VAŠE TERJATVE",
+    "group": "Denarni tok",
+    "defaultValue": "VAŠE TERJATVE"
+  },
+  {
+    "key": "text.1fmqimr",
+    "kind": "text",
+    "label": "Sredstva",
+    "group": "Denarni tok",
+    "defaultValue": "Sredstva"
+  },
+  {
+    "key": "text.11w5uex",
+    "kind": "text",
+    "label": "BREZ ČAKANJA NA KUPCA",
+    "group": "Denarni tok",
+    "defaultValue": "BREZ ČAKANJA NA KUPCA"
+  },
+  {
+    "key": "text.k4g294",
+    "kind": "text",
+    "label": "Poslovanje",
+    "group": "Denarni tok",
+    "defaultValue": "Poslovanje"
+  },
+  {
+    "key": "text.c9lezu",
+    "kind": "text",
+    "label": "LIKVIDNOST",
+    "group": "Denarni tok",
+    "defaultValue": "LIKVIDNOST"
+  },
+  {
+    "key": "text.1852rg7",
+    "kind": "text",
+    "label": "Odkupimo vašo terjatev in vam sredstva izplačamo takoj, plačilo ob zapadlosti poravna dolž",
+    "group": "Denarni tok",
+    "defaultValue": "Odkupimo vašo terjatev in vam sredstva izplačamo takoj, plačilo ob zapadlosti poravna dolžnik."
+  },
+  {
+    "key": "text.korbfi",
+    "kind": "text",
+    "label": "Dodatna sredstva",
+    "group": "Denarni tok",
+    "defaultValue": "Dodatna sredstva"
+  },
+  {
+    "key": "text.kigch2",
+    "kind": "text",
+    "label": "ZA KRAJŠE OBDOBJE",
+    "group": "Denarni tok",
+    "defaultValue": "ZA KRAJŠE OBDOBJE"
+  },
+  {
+    "key": "text.13i4m2b",
+    "kind": "text",
+    "label": "Premostitev",
+    "group": "Denarni tok",
+    "defaultValue": "Premostitev"
+  },
+  {
+    "key": "text.cyflns",
+    "kind": "text",
+    "label": "HITRA IZVEDBA",
+    "group": "Denarni tok",
+    "defaultValue": "HITRA IZVEDBA"
+  },
+  {
+    "key": "text.1e770bh",
+    "kind": "text",
+    "label": "Tekoče potrebe",
+    "group": "Denarni tok",
+    "defaultValue": "Tekoče potrebe"
+  },
+  {
+    "key": "text.18wbmzn",
+    "kind": "text",
+    "label": "KRATKOROČNO",
+    "group": "Denarni tok",
+    "defaultValue": "KRATKOROČNO"
+  },
+  {
+    "key": "text.1o60njq",
+    "kind": "text",
+    "label": "Dodatna sredstva za krajše obdobje – znesek, obdobje in način vračila določimo individualn",
+    "group": "Denarni tok",
+    "defaultValue": "Dodatna sredstva za krajše obdobje – znesek, obdobje in način vračila določimo individualno."
+  },
+  {
+    "key": "text.s3a3gs",
+    "kind": "text",
+    "label": "LASTNI KAPITAL",
+    "group": "Denarni tok",
+    "defaultValue": "LASTNI KAPITAL"
+  },
+  {
+    "key": "text.11ns9km",
+    "kind": "text",
+    "label": "Investicija",
+    "group": "Denarni tok",
+    "defaultValue": "Investicija"
+  },
+  {
+    "key": "text.1br3mkg",
+    "kind": "text",
+    "label": "V PROJEKT",
+    "group": "Denarni tok",
+    "defaultValue": "V PROJEKT"
+  },
+  {
+    "key": "text.trrpme",
+    "kind": "text",
+    "label": "Projekt",
+    "group": "Denarni tok",
+    "defaultValue": "Projekt"
+  },
+  {
+    "key": "text.1h96lxl",
+    "kind": "text",
+    "label": "IZVEDBA INVESTICIJE",
+    "group": "Denarni tok",
+    "defaultValue": "IZVEDBA INVESTICIJE"
+  },
+  {
+    "key": "text.1aysvur",
+    "kind": "text",
+    "label": "Financiramo poslovne in investicijske projekte – pogoje oblikujemo glede na namen in višin",
+    "group": "Denarni tok",
+    "defaultValue": "Financiramo poslovne in investicijske projekte – pogoje oblikujemo glede na namen in višino investicije."
+  },
+  {
+    "key": "text.8a30gp",
+    "kind": "text",
+    "label": "Vaše podjetje",
+    "group": "Denarni tok",
+    "defaultValue": "Vaše podjetje"
+  },
+  {
+    "key": "text.znwrx3",
+    "kind": "text",
+    "label": "Poslovna stavba terjatve.si",
+    "group": "Splošno",
+    "defaultValue": "Poslovna stavba terjatve.si"
+  },
+  {
+    "key": "text.1p3dy11",
+    "kind": "text",
+    "label": "Nalaganje strani",
+    "group": "Splošno",
+    "defaultValue": "Nalaganje strani"
+  },
+  {
+    "key": "text.loading",
+    "kind": "text",
+    "label": "Nalaganje",
+    "group": "Nalaganje",
+    "defaultValue": "Nalaganje"
+  },
+  {
+    "key": "image.3x7bae",
+    "kind": "image",
+    "label": "loading-dot.png",
+    "group": "Nalaganje",
+    "defaultValue": "/__l5e/assets-v1/04c07908-d6a8-44b8-af20-190bbd7f9b9c/loading-dot.png"
+  },
+  {
+    "key": "image.1v6ara8",
+    "kind": "image",
+    "label": "loading-e.png",
+    "group": "Nalaganje",
+    "defaultValue": "/__l5e/assets-v1/5c5be3df-5284-453c-9677-c6fdbee66b60/loading-e.png"
+  },
+  {
+    "key": "image.1ch3xp7",
+    "kind": "image",
+    "label": "loading-ink-black.png",
+    "group": "Nalaganje",
+    "defaultValue": "/__l5e/assets-v1/626053d3-4029-46a2-87a9-80fcab00d7c7/loading-ink-black.png"
+  },
+  {
+    "key": "image.ij6t94",
+    "kind": "image",
+    "label": "logo-white.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/8484cf7b-010c-4f88-9f1f-ec0425812259/logo-white.png"
+  },
+  {
+    "key": "image.1ilkpow",
+    "kind": "image",
+    "label": "logo.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/d5f4fa53-8bcd-48a8-9e4a-7b9753ce091b/logo.png"
+  },
+  {
+    "key": "image.1d9bq7",
+    "kind": "image",
+    "label": "partnerstvo.jpg",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/759059ff-8ee8-43f7-8513-5af4d616dedb/partnerstvo.jpg"
+  },
+  {
+    "key": "image.18l6bc5",
+    "kind": "image",
+    "label": "podjetje.jpg",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/2063559b-3154-4029-b513-5ab65b22de93/podjetje.jpg"
+  },
+  {
+    "key": "image.1653vfm",
+    "kind": "image",
+    "label": "service_factoring.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/09af85e7-937f-4cc0-9561-3397375ad2c4/service_factoring.png"
+  },
+  {
+    "key": "image.3xalwz",
+    "kind": "image",
+    "label": "service_projects.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/b2e5a7b9-695f-4940-851f-b54ee6fe66e3/service_projects.png"
+  },
+  {
+    "key": "image.a660u1",
+    "kind": "image",
+    "label": "service_property.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/c6152ad9-c804-4388-a3e0-eca08e716489/service_property.png"
+  },
+  {
+    "key": "image.1chlqr5",
+    "kind": "image",
+    "label": "service_receivables.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/6356a27d-b779-4b28-a343-0e353433f188/service_receivables.png"
+  },
+  {
+    "key": "image.cmouxa",
+    "kind": "image",
+    "label": "service_short_term.png",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/6727ae5d-4237-40c9-8a7b-26fe0d19a636/service_short_term.png"
+  },
+  {
+    "key": "image.13i5mhb",
+    "kind": "image",
+    "label": "stavba.webp",
+    "group": "Slike",
+    "defaultValue": "/__l5e/assets-v1/309558a4-fdd2-4f84-8e56-3b7f5279482d/stavba.webp"
+  }
+]

@@ -1,4 +1,5 @@
 // @ts-nocheck — Faithfully migrated user-supplied layout (stavba.html).
+import { useSiteContent, translateContent, resolveImage, contentText } from './content';
 import React from "react";
 import building from "@/assets/stavba.webp.asset.json";
 
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export default function BuildingPhoto({ wide = false, full = false, delay = 0 }: Props) {
+  const { content, text } = useSiteContent();
   const variant = full ? "full" : wide ? "wide" : "narrow";
   return (
     <div
@@ -22,9 +24,9 @@ export default function BuildingPhoto({ wide = false, full = false, delay = 0 }:
         <div className="building-photo__edge" />
         <div className="building-photo__card" />
 
-        <img className="building-photo__img" src={building.url} alt="Poslovna stavba terjatve.si" />
+        <img className="building-photo__img" src={resolveImage(content, building.url)} alt={text("text.znwrx3", "Poslovna stavba terjatve.si")} />
         <div className="building-photo__top" aria-hidden="true">
-          <img className="building-photo__top-img" src={building.url} alt="" />
+          <img className="building-photo__top-img" src={resolveImage(content, building.url)} alt="" />
         </div>
       </div>
     </div>

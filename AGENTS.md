@@ -15,3 +15,7 @@
 - Mount the shared loading overlay alongside the viewport-selected page; dismiss it after the logo animation, with a bounded asset-loading fallback, so the existing page remains the destination.
 - Share photographic featured-service cards and a canonical service-photo mapping across desktop, mobile, opened details and the money-flow diagram so each service retains the same subject and navigation handlers.
 - Render money-flow nodes and connectors as a responsive CSS grid, stacking them on narrow screens and pausing their animations offscreen, to match the supplied layout without horizontal dragging or unnecessary background animation.
+
+- Keep all editable text and image defaults in the CMS catalog; desktop and mobile templates resolve the same content keys to preserve their separate layouts.
+- Persist CMS overrides in site_content with admin-only writes and public reads; keep admin membership in user_roles and assign only verified allowlisted accounts to prevent public signup escalation.
+- Keep uploaded CMS images in private Storage with scoped read policies and long-lived signed display URLs because workspace policy forbids public buckets.

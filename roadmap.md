@@ -8,3 +8,5 @@
 - [x] Replace featured cards with uploaded illustrated cards in both themes and verify interactions.
 - [x] Add the uploaded building photo under the map in the contact section, in both views and themes.
 - [ ] Connect real inquiry delivery — not requested or connected yet; contact details are supplied, but an actual delivery service is still needed.
+
+- [x] Add protected /admin, editable text/photo catalog, persistent overrides and verify saved changes on both views.

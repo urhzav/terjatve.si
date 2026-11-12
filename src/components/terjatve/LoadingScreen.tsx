@@ -1,9 +1,11 @@
+import { useSiteContent, translateContent, resolveImage, contentText } from './content';
 import { useEffect, useState } from "react";
 import eLayer from "@/assets/loading-e.png.asset.json";
 import inkLayer from "@/assets/loading-ink-black.png.asset.json";
 import dotLayer from "@/assets/loading-dot.png.asset.json";
 
 export default function LoadingScreen() {
+  const { content, text } = useSiteContent();
   const [visible, setVisible] = useState(true);
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -16,7 +18,7 @@ export default function LoadingScreen() {
     document.body.style.overflow = "hidden";
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const restore = () => { document.body.style.overflow = previousOverflow; };
-    const images = [eLayer.url, inkLayer.url, dotLayer.url].map(src => {
+    const images = [eLayer.url, inkLayer.url, dotLayer.url].map(src => resolveImage(content, src)).map(src => {
       const image = new Image();
       image.src = src;
       return image.decode().catch(() => undefined);
@@ -51,16 +53,16 @@ export default function LoadingScreen() {
 
   if (!visible) return null;
   return (
-    <div className={`site-loading${playing ? " site-loading--playing" : ""}`} role="status" aria-label="Nalaganje strani">
+    <div className={`site-loading${playing ? " site-loading--playing" : ""}`} role="status" aria-label={text("text.1p3dy11", "Nalaganje strani")}>
       <div className="site-loading__glow" />
       <div className="site-loading__logo">
-        <img className="site-loading__e-glow" src={eLayer.url} alt="" />
-        <img className="site-loading__e" src={eLayer.url} alt="" />
-        <img className="site-loading__ink" src={inkLayer.url} alt="terjatve.si" />
-        <img className="site-loading__dot" src={dotLayer.url} alt="" />
+        <img className="site-loading__e-glow" src={resolveImage(content, eLayer.url)} alt="" />
+        <img className="site-loading__e" src={resolveImage(content, eLayer.url)} alt="" />
+        <img className="site-loading__ink" src={resolveImage(content, inkLayer.url)} alt={text("text.17tnfo8", "terjatve.si")} />
+        <img className="site-loading__dot" src={resolveImage(content, dotLayer.url)} alt="" />
       </div>
       <div className="site-loading__progress" aria-hidden="true">
-        <span>Nalaganje</span>
+        <span>{text("text.loading", "Nalaganje")}</span>
         <span className="site-loading__track"><span className="site-loading__bar" /></span>
         <span className="site-loading__percent">{progress}</span>
       </div>

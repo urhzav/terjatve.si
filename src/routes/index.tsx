@@ -1,10 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { queryOptions, useSuspenseQuery } from "@tanstack/react-query";
+import { getPublicContent } from "@/components/cms/content.functions";
+import { SiteContentProvider } from "@/components/terjatve/content";
 import { useEffect, useState } from "react";
 import DesktopSite from "@/components/terjatve/DesktopSite";
 import MobileSite from "@/components/terjatve/MobileSite";
 import LoadingScreen from "@/components/terjatve/LoadingScreen";
 
+const contentOptions = queryOptions({ queryKey: ["site-content"], queryFn: () => getPublicContent(), staleTime: 30000 });
+
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(contentOptions),
   component: Index,
   head: () => ({ meta: [
     { title: "terjatve.si — Financiranje za podjetja" },
@@ -17,6 +23,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  const { data } = useSuspenseQuery(contentOptions);
+  const content = Object.fromEntries(data.map(row => [row.key, row.value]));
   const [mobile, setMobile] = useState(false);
   useEffect(() => {
     const query = window.matchMedia("(max-width: 767px)");
@@ -25,5 +33,5 @@ function Index() {
     query.addEventListener("change", update);
     return () => query.removeEventListener("change", update);
   }, []);
-  return <>{mobile ? <MobileSite /> : <DesktopSite />}<LoadingScreen /></>;
+  return <SiteContentProvider content={content}>{mobile ? <MobileSite content={content} /> : <DesktopSite content={content} />}<LoadingScreen /></SiteContentProvider>;
 }

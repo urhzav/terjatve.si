@@ -1,4 +1,5 @@
 // @ts-nocheck — Faithfully migrated user-supplied JavaScript class and template.
+import { useSiteContent, translateContent, resolveImage, contentText } from './content';
 import React from "react";
 import { Button } from "@/components/ui/button";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
@@ -20,6 +21,7 @@ const FLOWS = [
 const NODE_PHOTOS = FEATURED_IDS.map(id => SERVICE_PHOTOS[id]);
 
 export default class MoneyFlow extends React.Component {
+  text(key, fallback) { return contentText(this.props.content, key, fallback); }
   state = { wide: true, idx: 0 };
   root = React.createRef();
   anims = [];
@@ -98,20 +100,20 @@ export default class MoneyFlow extends React.Component {
         <div className="flow-node flow-node--logo">
           <span data-ring="0" className="flow-node__ring" />
           <div className="flow-node__logos">
-            <img src={whiteLogo.url} alt="terjatve.si" className="flow-19" />
-            <img src={darkLogo.url} alt="terjatve.si" className="flow-20" />
+            <img src={resolveImage(this.props.content, whiteLogo.url)} alt={this.text("text.17tnfo8", "terjatve.si")} className="flow-19" />
+            <img src={resolveImage(this.props.content, darkLogo.url)} alt={this.text("text.17tnfo8", "terjatve.si")} className="flow-20" />
           </div>
         </div>
         {this.renderConnector(0, v.cur.e1, v.cur.e1s)}
         <div className="flow-node flow-node--photo">
-          <img src={companyPhoto.url} alt="Vaše podjetje" className="flow-node__photo" />
+          <img src={resolveImage(this.props.content, companyPhoto.url)} alt={this.text("text.8a30gp", "Vaše podjetje")} className="flow-node__photo" />
           <span className="flow-node__shade" />
           <span data-ring="1" className="flow-node__ring" />
           <div className="flow-node__copy"><span className="flow-node__title">Vaše podjetje</span></div>
         </div>
         {this.renderConnector(1, v.cur.e2, v.cur.e2s)}
         <div className="flow-node flow-node--photo">
-          {NODE_PHOTOS.map((src, i) => <img key={src} src={src} alt={i === this.state.idx ? v.cur.n3 : ''} className={`flow-node__photo flow-service-photo${i === this.state.idx ? ' is-active' : ''}`} />)}
+          {NODE_PHOTOS.map((src, i) => <img key={src} src={resolveImage(this.props.content, src)} alt={i === this.state.idx ? v.cur.n3 : ''} className={`flow-node__photo flow-service-photo${i === this.state.idx ? ' is-active' : ''}`} />)}
           <span className="flow-node__shade" />
           <span data-ring="2" className="flow-node__ring" />
           <div className="flow-node__copy">
@@ -142,7 +144,7 @@ export default class MoneyFlow extends React.Component {
     const { wide, idx } = this.state;
     const auto = this.props.autoplay ?? true;
     const op = i => (i === idx ? 1 : 0);
-    const tabs = FLOWS.map((f, i) => { const on = i === idx; return { i, on, num: '0' + (i + 1), name: f.name, bg: on ? 'color-mix(in oklch, var(--brand) 10%, transparent)' : 'var(--cardA)', border: on ? 'color-mix(in oklch, var(--brand) 60%, transparent)' : 'rgba(var(--ink),.1)', numColor: on ? 'var(--brand)' : 'rgba(var(--ink),.28)', color: on ? 'var(--fg)' : 'var(--body)', bar: on && !auto ? 1 : 0, pick: () => this.pick(i) }; });
-    return { rootRef: this.root, wide, narrow: !wide, tabs, cur: FLOWS[idx], op0: op(0), op1: op(1), op2: op(2), op3: op(3) };
+    const tabs = FLOWS.map((f, i) => { const on = i === idx; return { i, on, num: '0' + (i + 1), name: translateContent(f.name, this.props.content), bg: on ? 'color-mix(in oklch, var(--brand) 10%, transparent)' : 'var(--cardA)', border: on ? 'color-mix(in oklch, var(--brand) 60%, transparent)' : 'rgba(var(--ink),.1)', numColor: on ? 'var(--brand)' : 'rgba(var(--ink),.28)', color: on ? 'var(--fg)' : 'var(--body)', bar: on && !auto ? 1 : 0, pick: () => this.pick(i) }; });
+    return { rootRef: this.root, wide, narrow: !wide, tabs, cur: translateContent(FLOWS[idx], this.props.content), op0: op(0), op1: op(1), op2: op(2), op3: op(3) };
   }
 }

@@ -1,3 +1,4 @@
+import { useSiteContent, resolveImage } from './content';
 import type { MouseEvent, PointerEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { SERVICE_PHOTOS } from "./servicePhotos";
@@ -10,13 +11,15 @@ type FeaturedService = {
 };
 
 export default function FeaturedServiceCard({ service }: { service: FeaturedService }) {
+  const { content } = useSiteContent();
   const move = (event: PointerEvent<HTMLAnchorElement>) => {
     const el = event.currentTarget;
     const bounds = el.getBoundingClientRect();
     el.style.setProperty("--mx", `${event.clientX - bounds.left}px`);
     el.style.setProperty("--my", `${event.clientY - bounds.top}px`);
   };
-  const img = SERVICE_PHOTOS[service.id];
+  const photo = SERVICE_PHOTOS[service.id];
+  const img = photo ? resolveImage(content, photo) : undefined;
   return (
     <Button asChild variant="original" size="original">
       <a href={`#svc-${service.id}`} onClick={service.go} onPointerMove={move} data-spot="" data-cursor="Odpri" className="featured-service">
