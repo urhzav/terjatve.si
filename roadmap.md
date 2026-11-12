@@ -11,3 +11,5 @@
 
 - [x] Add protected /admin, editable text/photo catalog, persistent overrides and verify saved changes on both views.
 - [x] Add password setup/recovery page, send setup email and verify password sign-in; recipient must open the emailed link to complete their password setup.
+
+- [x] Replace admin brand text with the existing theme-aware logo and remove Google sign-in from the login page.
