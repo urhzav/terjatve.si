@@ -29,9 +29,9 @@ function CookiesPage() {
 
       <h2>Merjenje obiska</h2>
       <p>
-        Obisk strani merimo z orodjem za analitiko, ki ga zagotavlja Lovable. To orodje{' '}
-        <strong>ne uporablja piškotkov</strong>, v vašo napravo ne shranjuje ničesar, ne hrani
-        vaših IP-naslovov in obiskovalcev ne more prepoznati — vsak obisk šteje posebej.
+        Obisk strani merimo z orodjem za analitiko, ki ga zagotavlja ponudnik gostovanja. To
+        orodje <strong>ne uporablja piškotkov</strong>, v vašo napravo ne shranjuje ničesar, ne
+        hrani vaših IP-naslovov in obiskovalcev ne more prepoznati — vsak obisk šteje posebej.
       </p>
       <p>Za vsakega obiskovalca se beleži:</p>
       <ul>
@@ -42,9 +42,8 @@ function CookiesPage() {
       </ul>
       <p>
         Podrobni podatki se hranijo 90 dni, dnevni povzetki (število obiskov in ogledanih strani)
-        pa eno leto. Te podatke za nas zbira Lovable;{' '}
-        <a href="https://lovable.dev/privacy" target="_blank" rel="noreferrer">pravilnik o zasebnosti Lovable</a>{' '}
-        pojasnjuje, kako z njimi ravna.
+        pa eno leto. Podatke zbira ponudnik gostovanja in jih uporablja izključno za statistiko
+        obiska te strani.
       </p>
 
       <h2>Prijava za skrbnike</h2>
