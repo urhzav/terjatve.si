@@ -895,3 +895,11 @@ html[data-theme=light] .building-photo{--photo-shadow:0 -4px 22px rgba(10,10,11,
 .cms-contact-status [data-contact-status=rejected]{color:var(--cms-muted);}
 @media(max-width:1100px){.cms-contact-filters{grid-template-columns:repeat(2,minmax(0,1fr));}.cms-contact-filters>button{justify-self:end;grid-column:2;}}
 @media(max-width:380px){.cms-contact-filters{grid-template-columns:1fr;}.cms-contact-filters>button{grid-column:1;}}
+
+/* Select menus are portalled outside the admin shell; give them an opaque,
+   themed surface so underlying contact links cannot visually overlap them. */
+:root{--select-menu-shadow:0 8px 24px color-mix(in srgb,var(--fg) 14%,transparent);}
+.site-select-content{background:var(--card);color:var(--fg);border:1px solid var(--ghost);box-shadow:var(--select-menu-shadow);isolation:isolate;z-index:200;font-family:'Geist',sans-serif;}
+.site-select-item{cursor:pointer;line-height:1.5;}
+.site-select-item[data-highlighted]{background:var(--cms-active);color:var(--brand);outline:none;}
+.site-select-item[data-state=checked]{color:var(--brand);}
