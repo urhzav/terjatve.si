@@ -1,6 +1,8 @@
 // @ts-nocheck — Faithfully migrated user-supplied JavaScript class and template.
 import { useSiteContent, translateContent, resolveImage, contentText } from './content';
 import React from "react";
+import { submitInquiry } from "@/components/cms/contacts.functions";
+import { validateAttachments } from "@/components/cms/contact-validation";
 import { Button } from "@/components/ui/button";
 import whiteLogo from "@/assets/logo-white.png.asset.json";
 import darkLogo from "@/assets/logo.png.asset.json";
@@ -153,7 +155,8 @@ export default class MobileSite extends React.Component<{ content?: Record<strin
     });
   }
 
-  submit(e) {
+  async submit(e) {
+    if (this.state.sending) { e.preventDefault(); return; }
     e.preventDefault();
     const fd = new FormData(e.currentTarget), errors = {};
     if (!String(fd.get('name') || '').trim()) errors.name = 'Vpišite ime in priimek ali naziv podjetja.';
@@ -162,7 +165,14 @@ export default class MobileSite extends React.Component<{ content?: Record<strin
     this.setState({ errors });
     if (Object.keys(errors).length) return;
     this.setState({ sending: true });
-    this.setState({ sending: false, errors: { delivery: 'Pošiljanje še ni povezano. Za oddajo potrebujemo e-poštni naslov prejemnika.' } });
+    try {
+      fd.set('service', this.state.service);
+      validateAttachments(fd.getAll('files').filter(f => f instanceof File && f.size > 0));
+      await submitInquiry({ data: fd });
+      this.setState({ sending: false, sent: true, errors: {} });
+    } catch (error) {
+      this.setState({ sending: false, errors: { delivery: error instanceof Error ? error.message : 'Oddaja ni uspela. Poskusite znova.' } });
+    }
   }
 
   applyTheme(t, anim) {

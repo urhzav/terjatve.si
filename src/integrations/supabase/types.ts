@@ -26,6 +26,42 @@ export type Database = {
         }
         Relationships: []
       }
+      contact_submissions: {
+        Row: {
+          amount: string
+          attachments: Json
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string
+          service: string
+        }
+        Insert: {
+          amount?: string
+          attachments?: Json
+          created_at?: string
+          email: string
+          id?: string
+          message?: string
+          name: string
+          phone?: string
+          service: string
+        }
+        Update: {
+          amount?: string
+          attachments?: Json
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string
+          service?: string
+        }
+        Relationships: []
+      }
       site_content: {
         Row: {
           key: string

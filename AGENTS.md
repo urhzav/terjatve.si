@@ -11,7 +11,7 @@
 
 - Preserve the supplied desktop and mobile templates as separate React views selected by viewport, with shared money-flow visualization, to retain their different section orders and interactions.
 - Centralize imported visual declarations in src/styles.css; React state may supply only dynamic CSS variables.
-- Inquiry delivery is not connected; validate inputs but never claim receipt without actual delivery.
+- Both viewport forms submit through the shared server action to contact_submissions; show receipt only after persistence succeeds, and expose contacts and private attachment downloads only to admins.
 - Mount the shared loading overlay alongside the viewport-selected page; dismiss it after the logo animation, with a bounded asset-loading fallback, so the existing page remains the destination.
 - Share photographic featured-service cards and a canonical service-photo mapping across desktop, mobile, opened details and the money-flow diagram so each service retains the same subject and navigation handlers.
 - Render money-flow nodes and connectors as a responsive CSS grid, stacking them on narrow screens and pausing their animations offscreen, to match the supplied layout without horizontal dragging or unnecessary background animation.

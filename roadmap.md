@@ -7,7 +7,8 @@
 - [x] Add the uploaded logo loading animation before revealing the existing page.
 - [x] Replace featured cards with uploaded illustrated cards in both themes and verify interactions.
 - [x] Add the uploaded building photo under the map in the contact section, in both views and themes.
-- [ ] Connect real inquiry delivery — not requested or connected yet; contact details are supplied, but an actual delivery service is still needed.
+- [x] Store website inquiries with attachments and display them in an admin-only Contacts section; verify desktop/mobile submission and protected access.
+- [x] Create and activate the requested info@terjatve.si administrator without email confirmation; verify password login.
 
 - [x] Add protected /admin, editable text/photo catalog, persistent overrides and verify saved changes on both views.
 - [x] Add password setup/recovery page, send setup email and verify password sign-in; recipient must open the emailed link to complete their password setup.
