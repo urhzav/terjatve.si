@@ -912,4 +912,6 @@ html[data-theme=light]{--status-new-fg:oklch(0.44 0.14 250);--status-new-accent:
 .site-select-content{background:var(--card);color:var(--fg);border:1px solid var(--ghost);box-shadow:var(--select-menu-shadow);isolation:isolate;z-index:200;font-family:'Geist',sans-serif;}
 .site-select-item{cursor:pointer;line-height:1.5;}
 .site-select-item[data-highlighted]{background:var(--cms-active);color:var(--brand);outline:none;}
+.site-select-item[data-highlighted].cms-status-item{color:var(--status-fg);}
 .site-select-item[data-state=checked]{color:var(--brand);}
+.site-select-item[data-state=checked].cms-status-item{color:var(--status-fg);}
