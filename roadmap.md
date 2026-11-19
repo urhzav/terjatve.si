@@ -1,4 +1,5 @@
 # Tasks
+- [x] Add persistent admin inquiry statuses and filters; verify saved status and filtering.
 - [x] Restyle the money-flow diagram to the supplied v2 template while preserving current text and photos; verify desktop and mobile.
 - [x] Apply client document feedback: headings, numbering, logo, marquee, photo service cards/details, and enlarged photo diagram; verify both views.
 - [x] Transfer the desktop and mobile templates and money-flow animation.

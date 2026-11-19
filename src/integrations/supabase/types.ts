@@ -37,6 +37,7 @@ export type Database = {
           name: string
           phone: string
           service: string
+          status: string
         }
         Insert: {
           amount?: string
@@ -48,6 +49,7 @@ export type Database = {
           name: string
           phone?: string
           service: string
+          status?: string
         }
         Update: {
           amount?: string
@@ -59,6 +61,7 @@ export type Database = {
           name?: string
           phone?: string
           service?: string
+          status?: string
         }
         Relationships: []
       }

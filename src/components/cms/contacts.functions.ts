@@ -1,6 +1,7 @@
 import { createServerFn } from '@tanstack/react-start';
 import { requireSupabaseAuth } from '@/integrations/supabase/auth-middleware';
 import { inquirySchema, validateAttachments } from './contact-validation';
+import { contactStatusSchema } from './contact-status';
 
 export const submitInquiry = createServerFn({ method: 'POST' })
   .inputValidator((input: FormData) => {
@@ -39,6 +40,15 @@ export const getContacts = createServerFn({ method: 'GET' }).middleware([require
   if (error) throw error;
   return data;
 });
+export const updateContactStatus = createServerFn({ method: 'POST' }).middleware([requireSupabaseAuth])
+  .inputValidator((input: unknown) => contactStatusSchema.parse(input))
+  .handler(async ({ data, context }) => {
+    const { data: allowed, error: roleError } = await context.supabase.rpc('has_role', { _user_id: context.userId, _role: 'admin' });
+    if (roleError || allowed !== true) throw new Error('Nimate skrbniškega dostopa.');
+    const { data: row, error } = await context.supabase.from('contact_submissions').update({ status: data.status }).eq('id', data.id).select('id,status').single();
+    if (error || !row) throw new Error('Statusa ni bilo mogoče shraniti.');
+    return row;
+  });
 export const getContactAttachment = createServerFn({ method: 'POST' }).middleware([requireSupabaseAuth]).inputValidator((path: string) => {
   if (typeof path !== 'string' || !/^[0-9a-f-]{36}\/[0-9a-f-]{36}$/.test(path)) throw new Error('Neveljavna priloga.');
   return path;

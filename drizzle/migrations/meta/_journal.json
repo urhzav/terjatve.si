@@ -15,6 +15,13 @@
       "when": 1795095844248,
       "tag": "0001_website_contact_submissions",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795098272918,
+      "tag": "0002_inquiry_status",
+      "breakpoints": true
     }
   ]
 }

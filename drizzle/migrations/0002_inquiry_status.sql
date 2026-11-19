@@ -1,0 +1,3 @@
+ALTER TABLE public.contact_submissions ADD COLUMN status text NOT NULL DEFAULT 'new' CHECK (status IN ('new', 'in_progress', 'completed', 'rejected'));
+GRANT UPDATE (status) ON public.contact_submissions TO authenticated;
+CREATE POLICY admin_update_contact_status ON public.contact_submissions FOR UPDATE TO authenticated USING (public.has_role(auth.uid(), 'admin'::public.app_role)) WITH CHECK (public.has_role(auth.uid(), 'admin'::public.app_role));

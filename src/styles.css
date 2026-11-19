@@ -882,3 +882,16 @@ html[data-theme=light] .building-photo{--photo-shadow:0 -4px 22px rgba(10,10,11,
 
 .cms-contacts{display:grid;gap:20px;}.cms-contact{padding:24px;border:1px solid var(--cms-border);border-radius:6px;background:var(--cms-surface);min-width:0;}.cms-contact header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;}.cms-contact h2{font-size:20px;margin:0;overflow-wrap:anywhere;}.cms-contact time{font-size:12px;color:var(--cms-muted);}.cms-contact-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;}.cms-contact-links a{display:flex;align-items:center;gap:8px;font-size:14px;overflow-wrap:anywhere;max-width:100%;}.cms-contact dl{display:flex;flex-wrap:wrap;gap:24px;margin:20px 0 0;}.cms-contact dt{font-size:11px;color:var(--cms-muted);}.cms-contact dd{margin:4px 0 0;font-size:14px;}.cms-contact-message{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.7;margin:20px 0 0;}.cms-contact-files{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}.cms-contact-files button{height:auto;white-space:normal;overflow-wrap:anywhere;max-width:100%;}
 @media(max-width:600px){.cms-sidebar nav{flex-wrap:wrap;}.cms-sidebar nav .cms-nav{width:auto;}.cms-contact{padding:18px;}}
+.cms-contact-filters{display:grid;grid-template-columns:minmax(130px,1fr) minmax(160px,1.5fr) repeat(2,minmax(130px,1fr)) 36px;gap:12px;align-items:end;margin:-12px 0 28px;}
+.cms-contact-filters>div,.cms-contact-filters>label{display:grid;gap:8px;min-width:0;}
+.cms-contact-filters label{font-size:12px;color:var(--cms-muted);}
+.cms-contact-filters input,.cms-contact-filters button[role=combobox]{border-color:var(--cms-border);color:var(--cms-foreground);min-width:0;}
+.cms-contact-status{display:flex;align-items:center;gap:12px;margin-top:16px;}
+.cms-contact-status button{width:168px;border-color:var(--cms-border);flex-shrink:0;}
+.cms-contact-status span{font-size:12px;}
+.cms-contact-status [data-contact-status=new]{color:var(--brand);background:var(--cms-active);border-color:var(--brand);}
+.cms-contact-status [data-contact-status=in_progress]{color:var(--cms-foreground);background:var(--cms-active);}
+.cms-contact-status [data-contact-status=completed]{color:var(--cms-foreground);background:var(--cms-background);}
+.cms-contact-status [data-contact-status=rejected]{color:var(--cms-muted);}
+@media(max-width:1100px){.cms-contact-filters{grid-template-columns:repeat(2,minmax(0,1fr));}.cms-contact-filters>button{justify-self:end;grid-column:2;}}
+@media(max-width:380px){.cms-contact-filters{grid-template-columns:1fr;}.cms-contact-filters>button{grid-column:1;}}
